@@ -1,0 +1,104 @@
+Time for add vectors of 10 elements: 	 0.033088 	 milliseconds
+Time for add vectors of 10 elements: 	 0.009152 	 milliseconds
+Time for add vectors of 10 elements: 	 0.008224 	 milliseconds
+Time for add vectors of 10 elements: 	 0.006848 	 milliseconds
+Time for add vectors of 10 elements: 	 0.008448 	 milliseconds
+Time for add vectors of 10 elements: 	 0.007904 	 milliseconds
+Time for add vectors of 10 elements: 	 0.008192 	 milliseconds
+Time for add vectors of 10 elements: 	 0.008000 	 milliseconds
+Time for add vectors of 10 elements: 	 0.008160 	 milliseconds
+Time for add vectors of 10 elements: 	 0.007584 	 milliseconds
+
+
+
+Time for add vectors of 100 elements: 	 0.010624 	 milliseconds
+Time for add vectors of 100 elements: 	 0.008160 	 milliseconds
+Time for add vectors of 100 elements: 	 0.008192 	 milliseconds
+Time for add vectors of 100 elements: 	 0.008192 	 milliseconds
+Time for add vectors of 100 elements: 	 0.008192 	 milliseconds
+Time for add vectors of 100 elements: 	 0.007040 	 milliseconds
+Time for add vectors of 100 elements: 	 0.007040 	 milliseconds
+Time for add vectors of 100 elements: 	 0.009248 	 milliseconds
+Time for add vectors of 100 elements: 	 0.007904 	 milliseconds
+Time for add vectors of 100 elements: 	 0.008192 	 milliseconds
+
+
+
+Time for add vectors of 1000 elements: 	 0.011360 	 milliseconds
+Time for add vectors of 1000 elements: 	 0.009504 	 milliseconds
+Time for add vectors of 1000 elements: 	 0.006880 	 milliseconds
+Time for add vectors of 1000 elements: 	 0.007616 	 milliseconds
+Time for add vectors of 1000 elements: 	 0.006848 	 milliseconds
+Time for add vectors of 1000 elements: 	 0.006816 	 milliseconds
+Time for add vectors of 1000 elements: 	 0.009216 	 milliseconds
+Time for add vectors of 1000 elements: 	 0.007392 	 milliseconds
+Time for add vectors of 1000 elements: 	 0.008256 	 milliseconds
+Time for add vectors of 1000 elements: 	 0.008000 	 milliseconds
+
+
+
+Time for add vectors of 10000 elements: 	 0.010560 	 milliseconds
+Time for add vectors of 10000 elements: 	 0.007040 	 milliseconds
+Time for add vectors of 10000 elements: 	 0.018560 	 milliseconds
+Time for add vectors of 10000 elements: 	 0.008416 	 milliseconds
+Time for add vectors of 10000 elements: 	 0.008032 	 milliseconds
+Time for add vectors of 10000 elements: 	 0.008160 	 milliseconds
+Time for add vectors of 10000 elements: 	 0.008192 	 milliseconds
+Time for add vectors of 10000 elements: 	 0.008128 	 milliseconds
+Time for add vectors of 10000 elements: 	 0.008000 	 milliseconds
+Time for add vectors of 10000 elements: 	 0.007040 	 milliseconds
+
+
+
+Time for add vectors of 100000 elements: 	 0.013120 	 milliseconds
+Time for add vectors of 100000 elements: 	 0.012576 	 milliseconds
+Time for add vectors of 100000 elements: 	 0.013920 	 milliseconds
+Time for add vectors of 100000 elements: 	 0.012768 	 milliseconds
+Time for add vectors of 100000 elements: 	 0.013472 	 milliseconds
+Time for add vectors of 100000 elements: 	 0.012288 	 milliseconds
+Time for add vectors of 100000 elements: 	 0.013760 	 milliseconds
+Time for add vectors of 100000 elements: 	 0.012992 	 milliseconds
+Time for add vectors of 100000 elements: 	 0.012288 	 milliseconds
+Time for add vectors of 100000 elements: 	 0.013024 	 milliseconds
+
+
+
+Time for add vectors of 1000000 elements: 	 0.080352 	 milliseconds
+Time for add vectors of 1000000 elements: 	 0.079552 	 milliseconds
+Time for add vectors of 1000000 elements: 	 0.079296 	 milliseconds
+Time for add vectors of 1000000 elements: 	 0.079552 	 milliseconds
+Time for add vectors of 1000000 elements: 	 0.078560 	 milliseconds
+Time for add vectors of 1000000 elements: 	 0.077824 	 milliseconds
+Time for add vectors of 1000000 elements: 	 0.077824 	 milliseconds
+Time for add vectors of 1000000 elements: 	 0.077472 	 milliseconds
+Time for add vectors of 1000000 elements: 	 0.080736 	 milliseconds
+Time for add vectors of 1000000 elements: 	 0.079808 	 milliseconds
+
+
+
+Time for add vectors of 10000000 elements: 	 0.811200 	 milliseconds
+Time for add vectors of 10000000 elements: 	 0.703264 	 milliseconds
+Time for add vectors of 10000000 elements: 	 0.704352 	 milliseconds
+Time for add vectors of 10000000 elements: 	 0.706560 	 milliseconds
+Time for add vectors of 10000000 elements: 	 0.703360 	 milliseconds
+Time for add vectors of 10000000 elements: 	 0.703584 	 milliseconds
+Time for add vectors of 10000000 elements: 	 0.702464 	 milliseconds
+Time for add vectors of 10000000 elements: 	 0.701952 	 milliseconds
+Time for add vectors of 10000000 elements: 	 0.702144 	 milliseconds
+Time for add vectors of 10000000 elements: 	 0.700416 	 milliseconds
+
+
+
+Time for add vectors of 100000000 elements: 	 7.076864 	 milliseconds
+Time for add vectors of 100000000 elements: 	 6.950976 	 milliseconds
+Time for add vectors of 100000000 elements: 	 6.951168 	 milliseconds
+Time for add vectors of 100000000 elements: 	 6.948000 	 milliseconds
+Time for add vectors of 100000000 elements: 	 6.949728 	 milliseconds
+Time for add vectors of 100000000 elements: 	 6.947104 	 milliseconds
+Time for add vectors of 100000000 elements: 	 6.678048 	 milliseconds
+Time for add vectors of 100000000 elements: 	 6.597312 	 milliseconds
+Time for add vectors of 100000000 elements: 	 6.593280 	 milliseconds
+Time for add vectors of 100000000 elements: 	 6.598656 	 milliseconds
+
+
+

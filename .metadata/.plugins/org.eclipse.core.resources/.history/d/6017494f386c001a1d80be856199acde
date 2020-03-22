@@ -20,7 +20,6 @@
 #include <stdio.h>
 #include <sys/time.h>
 #include <stdlib.h>
-#include <math.h>
 
 // For the CUDA runtime routines (prefixed with "cuda_")
 #include <cuda_runtime.h>
@@ -151,11 +150,11 @@ int main(void) {
 		}
 
 		//loop for time measuring:
-		for (int in = 0; in <= 10; in++) {
+		for (int in = 0; in < 10; in++) {
 			// Launch the Vector Add CUDA Kernel
-			int threads = 1024;
-			int threadsPerBlock = pow(2,in);
-			int blocksPerGrid = numElements/threadsPerBlock+threadsPerBlock;
+			int threadsPerBlock = 256;
+			int blocksPerGrid = (numElements + threadsPerBlock - 1)
+					/ threadsPerBlock;
 			printf("CUDA kernel launch with %d blocks of %d threads\n",
 					blocksPerGrid, threadsPerBlock);
 
@@ -168,9 +167,9 @@ int main(void) {
 					numElements);
 			cudaEventRecord(stop);
 
-//			gettimeofday(&t0, 0);
-//			vectorAddCpu(h_A, h_B, h_C, numElements);
-//			gettimeofday(&t1, 0);
+			gettimeofday(&t0, 0);
+			vectorAddCpu(h_A, h_B, h_C, numElements);
+			gettimeofday(&t1, 0);
 
 			err = cudaGetLastError();
 
@@ -185,7 +184,7 @@ int main(void) {
 			cudaEventSynchronize(stop);
 			cudaEventElapsedTime(&milliseconds, start, stop);
 
-			fprintf(execution_time, "%d\t%d\t%f\n",blocksPerGrid, threadsPerBlock, milliseconds);
+			fprintf(execution_time, "%f\t%f\n", milliseconds,timedifference_msec(t0, t1));
 
 		}
 

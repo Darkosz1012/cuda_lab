@@ -61,7 +61,7 @@ int main(void) {
 	cudaError_t err = cudaSuccess;
 
 	// Print the vector length to be used, and compute its size
-	int numElements = 10;
+	int numElements = 10000;
 
 	clock_t start_t, end_t, total_t;
 	struct timeval t0;
@@ -151,11 +151,11 @@ int main(void) {
 		}
 
 		//loop for time measuring:
-		for (int in = 0; in <= 10; in++) {
+		for (int in = 1; in < 10; in++) {
 			// Launch the Vector Add CUDA Kernel
 			int threads = 1024;
 			int threadsPerBlock = pow(2,in);
-			int blocksPerGrid = numElements/threadsPerBlock+threadsPerBlock;
+			int blocksPerGrid = threads/threadsPerBlock;
 			printf("CUDA kernel launch with %d blocks of %d threads\n",
 					blocksPerGrid, threadsPerBlock);
 

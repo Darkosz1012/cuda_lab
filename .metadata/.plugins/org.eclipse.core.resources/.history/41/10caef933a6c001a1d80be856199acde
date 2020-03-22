@@ -151,7 +151,7 @@ int main(void) {
 		}
 
 		//loop for time measuring:
-		for (int in = 0; in <= 10; in++) {
+		for (int in = 1; in <= 10; in++) {
 			// Launch the Vector Add CUDA Kernel
 			int threads = 1024;
 			int threadsPerBlock = pow(2,in);

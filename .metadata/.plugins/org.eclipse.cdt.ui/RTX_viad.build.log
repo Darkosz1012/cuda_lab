@@ -1,44 +1,7 @@
-13:42:23 **** Incremental Build of configuration Debug for project RTX_viad ****
-make all 
-Building file: ../src/vectorAdd.cu
-Invoking: NVCC Compiler
-/usr/local/cuda-10.1/bin/nvcc -I"/usr/local/cuda-10.1/samples/0_Simple" -I"/usr/local/cuda-10.1/samples/common/inc" -I"/home/cuda-lab07/cuda-workspace/RTX_viad" -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/vectorAdd.d" "../src/vectorAdd.cu"
-/usr/local/cuda-10.1/bin/nvcc -I"/usr/local/cuda-10.1/samples/0_Simple" -I"/usr/local/cuda-10.1/samples/common/inc" -I"/home/cuda-lab07/cuda-workspace/RTX_viad" -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/vectorAdd.o" "../src/vectorAdd.cu"
-../src/vectorAdd.cu(156): warning: variable "threads" was declared but never referenced
-
-../src/vectorAdd.cu(66): warning: variable "start_t" was declared but never referenced
-
-../src/vectorAdd.cu(66): warning: variable "end_t" was declared but never referenced
-
-../src/vectorAdd.cu(66): warning: variable "total_t" was declared but never referenced
-
-../src/vectorAdd.cu(67): warning: variable "t0" was declared but never referenced
-
-../src/vectorAdd.cu(68): warning: variable "t1" was declared but never referenced
-
-../src/vectorAdd.cu(69): warning: variable "elapsed" was declared but never referenced
-
-../src/vectorAdd.cu(156): warning: variable "threads" was declared but never referenced
-
-../src/vectorAdd.cu(66): warning: variable "start_t" was declared but never referenced
-
-../src/vectorAdd.cu(66): warning: variable "end_t" was declared but never referenced
-
-../src/vectorAdd.cu(66): warning: variable "total_t" was declared but never referenced
-
-../src/vectorAdd.cu(67): warning: variable "t0" was declared but never referenced
-
-../src/vectorAdd.cu(68): warning: variable "t1" was declared but never referenced
-
-../src/vectorAdd.cu(69): warning: variable "elapsed" was declared but never referenced
-
-Finished building: ../src/vectorAdd.cu
- 
-Building target: RTX_viad
-Invoking: NVCC Linker
-/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "RTX_viad"  ./src/vectorAdd.o   
-Finished building target: RTX_viad
+15:29:30 **** Clean-only build of configuration Debug for project RTX_viad ****
+make clean 
+rm -rf  ./src/vectorAdd.o  ./src/vectorAdd.d  RTX_viad
  
 
-13:42:25 Build Finished (took 1s.873ms)
+15:29:30 Build Finished (took 80ms)
 

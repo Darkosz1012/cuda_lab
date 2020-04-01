@@ -47,3 +47,610 @@ make: Nothing to be done for `all'.
 15:39:16 **** Incremental Build of configuration Debug for project RTX_addVector ****
 make all 
 make: Nothing to be done for `all'.
+20:24:36 **** Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+../src/addMatrix.cu:28:25: fatal error: helper_cuda.h: No such file or directory
+ #include <helper_cuda.h>
+                         ^
+compilation terminated.
+make: *** [src/addMatrix.o] Error 1
+20:29:37 **** Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+../src/addMatrix.cu:28:25: fatal error: helper_cuda.h: No such file or directory
+ #include <helper_cuda.h>
+                         ^
+compilation terminated.
+make: *** [src/addMatrix.o] Error 1
+20:30:16 **** Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(48): error: identifier "i" is undefined
+
+../src/addMatrix.cu(48): error: identifier "j" is undefined
+
+../src/addMatrix.cu(168): error: identifier "addMatrix2d" is undefined
+
+../src/addMatrix.cu(67): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(70): warning: variable "elapsed" was declared but never referenced
+
+3 errors detected in the compilation of "/tmp/tmpxft_00004827_00000000-7_addMatrix.compute_75.cpp1.ii".
+make: *** [src/addMatrix.o] Error 1
+20:30:54 **** Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(48): error: identifier "i" is undefined
+
+../src/addMatrix.cu(48): error: identifier "j" is undefined
+
+../src/addMatrix.cu(67): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(70): warning: variable "elapsed" was declared but never referenced
+
+2 errors detected in the compilation of "/tmp/tmpxft_0000489c_00000000-7_addMatrix.compute_75.cpp1.ii".
+make: *** [src/addMatrix.o] Error 1
+20:32:50 **** Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(48): error: identifier "i" is undefined
+
+../src/addMatrix.cu(48): error: identifier "j" is undefined
+
+../src/addMatrix.cu(67): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(70): warning: variable "elapsed" was declared but never referenced
+
+2 errors detected in the compilation of "/tmp/tmpxft_0000496a_00000000-7_addMatrix.compute_75.cpp1.ii".
+make: *** [src/addMatrix.o] Error 1
+20:33:25 **** Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(67): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(70): warning: variable "elapsed" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(70): warning: variable "elapsed" was declared but never referenced
+
+Finished building: ../src/addMatrix.cu
+ 
+Building target: addMatrix
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "addMatrix"  ./src/addMatrix.o   
+Finished building target: addMatrix
+ 
+20:33:32 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+make: Nothing to be done for `all'.
+20:41:43 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(67): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(70): warning: variable "elapsed" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(70): warning: variable "elapsed" was declared but never referenced
+
+Finished building: ../src/addMatrix.cu
+ 
+Building target: addMatrix
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "addMatrix"  ./src/addMatrix.o   
+Finished building target: addMatrix
+ 
+21:16:59 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(75): error: identifier "numElementsInDim" is undefined
+
+../src/addMatrix.cu(65): warning: variable "numElementsInDimInDim" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(70): warning: variable "elapsed" was declared but never referenced
+
+1 error detected in the compilation of "/tmp/tmpxft_00005647_00000000-7_addMatrix.compute_75.cpp1.ii".
+make: *** [src/addMatrix.o] Error 1
+21:17:23 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(75): error: identifier "numElementsInDim" is undefined
+
+../src/addMatrix.cu(65): warning: variable "numElementsInDimInDim" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(70): warning: variable "elapsed" was declared but never referenced
+
+1 error detected in the compilation of "/tmp/tmpxft_000056ab_00000000-7_addMatrix.compute_75.cpp1.ii".
+make: *** [src/addMatrix.o] Error 1
+21:17:55 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(67): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(70): warning: variable "elapsed" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(67): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(70): warning: variable "elapsed" was declared but never referenced
+
+Finished building: ../src/addMatrix.cu
+ 
+Building target: addMatrix
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "addMatrix"  ./src/addMatrix.o   
+Finished building target: addMatrix
+ 
+22:11:16 **** Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(40): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(40): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(40): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(43): warning: variable "elapsed" was declared but never referenced
+
+../src/addMatrix.cu(40): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(40): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(40): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(43): warning: variable "elapsed" was declared but never referenced
+
+Finished building: ../src/addMatrix.cu
+ 
+Building target: addMatrix
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "addMatrix"  ./src/addMatrix.o   
+Finished building target: addMatrix
+ 
+16:11:19 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(42): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(101): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(104): warning: variable "elapsed" was declared but never referenced
+
+../src/addMatrix.cu(42): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(101): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(104): warning: variable "elapsed" was declared but never referenced
+
+Finished building: ../src/addMatrix.cu
+ 
+Building target: addMatrix
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "addMatrix"  ./src/addMatrix.o   
+Finished building target: addMatrix
+ 
+16:16:06 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(42): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(101): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(104): warning: variable "elapsed" was declared but never referenced
+
+../src/addMatrix.cu(42): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(101): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(104): warning: variable "elapsed" was declared but never referenced
+
+Finished building: ../src/addMatrix.cu
+ 
+Building target: addMatrix
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "addMatrix"  ./src/addMatrix.o   
+Finished building target: addMatrix
+ 
+16:16:58 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(42): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(101): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(104): warning: variable "elapsed" was declared but never referenced
+
+../src/addMatrix.cu(42): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(101): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(104): warning: variable "elapsed" was declared but never referenced
+
+Finished building: ../src/addMatrix.cu
+ 
+Building target: addMatrix
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "addMatrix"  ./src/addMatrix.o   
+Finished building target: addMatrix
+ 
+16:20:57 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(42): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(101): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(104): warning: variable "elapsed" was declared but never referenced
+
+../src/addMatrix.cu(42): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(101): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(104): warning: variable "elapsed" was declared but never referenced
+
+Finished building: ../src/addMatrix.cu
+ 
+Building target: addMatrix
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "addMatrix"  ./src/addMatrix.o   
+Finished building target: addMatrix
+ 
+16:34:06 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(42): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(215): error: call of an object of a class type without appropriate operator() or conversion functions to pointer-to-function type
+
+../src/addMatrix.cu(216): error: call of an object of a class type without appropriate operator() or conversion functions to pointer-to-function type
+
+../src/addMatrix.cu(101): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(102): warning: variable "t0" was declared but never referenced
+
+../src/addMatrix.cu(103): warning: variable "t1" was declared but never referenced
+
+../src/addMatrix.cu(104): warning: variable "elapsed" was declared but never referenced
+
+2 errors detected in the compilation of "/tmp/tmpxft_00007741_00000000-7_addMatrix.compute_75.cpp1.ii".
+make: *** [src/addMatrix.o] Error 1
+16:34:54 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(42): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(101): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(102): warning: variable "t0" was declared but never referenced
+
+../src/addMatrix.cu(103): warning: variable "t1" was declared but never referenced
+
+../src/addMatrix.cu(104): warning: variable "elapsed" was declared but never referenced
+
+../src/addMatrix.cu(42): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(101): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(102): warning: variable "t0" was declared but never referenced
+
+../src/addMatrix.cu(103): warning: variable "t1" was declared but never referenced
+
+../src/addMatrix.cu(104): warning: variable "elapsed" was declared but never referenced
+
+Finished building: ../src/addMatrix.cu
+ 
+Building target: addMatrix
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "addMatrix"  ./src/addMatrix.o   
+Finished building target: addMatrix
+ 
+16:41:01 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(42): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(101): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(102): warning: variable "t0" was declared but never referenced
+
+../src/addMatrix.cu(103): warning: variable "t1" was declared but never referenced
+
+../src/addMatrix.cu(104): warning: variable "elapsed" was declared but never referenced
+
+../src/addMatrix.cu(42): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(101): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(101): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(102): warning: variable "t0" was declared but never referenced
+
+../src/addMatrix.cu(103): warning: variable "t1" was declared but never referenced
+
+../src/addMatrix.cu(104): warning: variable "elapsed" was declared but never referenced
+
+Finished building: ../src/addMatrix.cu
+ 
+Building target: addMatrix
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "addMatrix"  ./src/addMatrix.o   
+Finished building target: addMatrix
+ 
+16:44:02 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+make: Nothing to be done for `all'.
+17:15:15 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(40): error: identifier "nx" is undefined
+
+../src/addMatrix.cu(60): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(257): error: too few arguments in function call
+
+../src/addMatrix.cu(266): error: too few arguments in function call
+
+../src/addMatrix.cu(119): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(119): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(119): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(120): warning: variable "t0" was declared but never referenced
+
+../src/addMatrix.cu(121): warning: variable "t1" was declared but never referenced
+
+../src/addMatrix.cu(122): warning: variable "elapsed" was declared but never referenced
+
+3 errors detected in the compilation of "/tmp/tmpxft_000006cf_00000000-7_addMatrix.compute_75.cpp1.ii".
+make: *** [src/addMatrix.o] Error 1
+17:21:10 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(40): error: identifier "nx" is undefined
+
+../src/addMatrix.cu(60): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(267): error: unrecognized token
+
+../src/addMatrix.cu(267): error: identifier "dyadic_" is undefined
+
+../src/addMatrix.cu(267): error: expected a ";"
+
+../src/addMatrix.cu(119): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(119): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(119): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(120): warning: variable "t0" was declared but never referenced
+
+../src/addMatrix.cu(121): warning: variable "t1" was declared but never referenced
+
+../src/addMatrix.cu(122): warning: variable "elapsed" was declared but never referenced
+
+4 errors detected in the compilation of "/tmp/tmpxft_000008f8_00000000-7_addMatrix.compute_75.cpp1.ii".
+make: *** [src/addMatrix.o] Error 1
+17:21:36 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(40): error: identifier "nx" is undefined
+
+../src/addMatrix.cu(60): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(119): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(119): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(119): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(120): warning: variable "t0" was declared but never referenced
+
+../src/addMatrix.cu(121): warning: variable "t1" was declared but never referenced
+
+../src/addMatrix.cu(122): warning: variable "elapsed" was declared but never referenced
+
+1 error detected in the compilation of "/tmp/tmpxft_00000969_00000000-7_addMatrix.compute_75.cpp1.ii".
+make: *** [src/addMatrix.o] Error 1
+17:22:19 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(60): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(119): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(119): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(119): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(120): warning: variable "t0" was declared but never referenced
+
+../src/addMatrix.cu(121): warning: variable "t1" was declared but never referenced
+
+../src/addMatrix.cu(122): warning: variable "elapsed" was declared but never referenced
+
+../src/addMatrix.cu(60): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(119): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(119): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(119): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(120): warning: variable "t0" was declared but never referenced
+
+../src/addMatrix.cu(121): warning: variable "t1" was declared but never referenced
+
+../src/addMatrix.cu(122): warning: variable "elapsed" was declared but never referenced
+
+Finished building: ../src/addMatrix.cu
+ 
+Building target: addMatrix
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "addMatrix"  ./src/addMatrix.o   
+Finished building target: addMatrix
+ 

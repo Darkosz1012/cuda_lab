@@ -1,0 +1,44 @@
+17:22:19 **** Incremental Build of configuration Debug for project addMatrix ****
+make all 
+Building file: ../src/addMatrix.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/addMatrix.d" "../src/addMatrix.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/addMatrix.o" "../src/addMatrix.cu"
+../src/addMatrix.cu(60): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(119): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(119): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(119): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(120): warning: variable "t0" was declared but never referenced
+
+../src/addMatrix.cu(121): warning: variable "t1" was declared but never referenced
+
+../src/addMatrix.cu(122): warning: variable "elapsed" was declared but never referenced
+
+../src/addMatrix.cu(60): warning: parameter "C" was set but never used
+
+../src/addMatrix.cu(119): warning: variable "start_t" was declared but never referenced
+
+../src/addMatrix.cu(119): warning: variable "end_t" was declared but never referenced
+
+../src/addMatrix.cu(119): warning: variable "total_t" was declared but never referenced
+
+../src/addMatrix.cu(120): warning: variable "t0" was declared but never referenced
+
+../src/addMatrix.cu(121): warning: variable "t1" was declared but never referenced
+
+../src/addMatrix.cu(122): warning: variable "elapsed" was declared but never referenced
+
+Finished building: ../src/addMatrix.cu
+ 
+Building target: addMatrix
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "addMatrix"  ./src/addMatrix.o   
+Finished building target: addMatrix
+ 
+
+17:22:20 Build Finished (took 1s.125ms)
+

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;addMatrix/src/vectorAdd.cu&apos; to &apos;addMatrix.cu&apos;" description="Rename resource &apos;vectorAdd.cu&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/vectorAdd.cu" name="addMatrix.cu" stamp="1585308679412" updateReferences="true"/>
+</session>

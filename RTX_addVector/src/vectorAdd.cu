@@ -40,14 +40,6 @@ __global__ void vectorAdd(const float *A, const float *B, float *C,
 	if (i < numElements) {
 		C[i] = A[i] + B[i];
 	}
-}
-void vectorAddCpu(const float *A, const float *B, float *C,int numElements) {
-
-
-	for(int i = 0 ; i < numElements; i++){
-		C[i] = A[i] + B[i];
-	}
-}
 float timedifference_msec(struct timeval t0, struct timeval t1)
 {
     return (t1.tv_sec - t0.tv_sec) * 1000.0f + (t1.tv_usec - t0.tv_usec) / 1000.0f;

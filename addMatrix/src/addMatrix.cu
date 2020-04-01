@@ -50,7 +50,51 @@ __global__ void dyadic_1D(const float *A, const float *B, float *C, int n) {
 			C[n * j + i] = A[i] * B[j];
 		}
 }
+__global__ void matrixAdd2D(const int *A, const int *B, int *C, int nx,
+		int ny) {
+	int i = blockDim.x * blockIdx.x + threadIdx.x;
+	int j = blockDim.y * blockIdx.y + threadIdx.y;
+	int idx = nx * j + i;
+	if (i < nx && j < ny) {
+		C[idx] = A[idx] + B[idx];
+	}
+}
 
+__global__ void matrixAdd1D(const int *A, const int *B, int *C, int n) {
+	int idx = blockDim.x * blockIdx.x + threadIdx.x;
+	if (idx < n) {
+		C[idx] = A[idx] + B[idx];
+	}
+}
+
+
+__global__ void hdamard_2D(const int *A, const int *B, int *C, int nx, int ny) {
+
+	int i = blockDim.x * blockIdx.x + threadIdx.x;
+	int j = blockDim.y * blockIdx.y + threadIdx.y;
+	int idx = nx * j + i;
+	if (i < nx && j < ny) {
+		C[idx] = A[idx] * B[idx];
+	}
+}
+
+__global__ void dyadic_2D(const int *A, const int *B, int *C, int n) {
+
+	int i = blockDim.x * blockIdx.x + threadIdx.x;
+	int j = blockDim.y * blockIdx.y + threadIdx.y;
+	int idx = n * j + i;
+	if (i < n && j < n) {
+		C[idx] = A[i] * B[j];
+	}
+}
+__global__ void dyadic_1D(const int *A, const int *B, int *C, int n) {
+
+	int i = blockDim.x * blockIdx.x + threadIdx.x;
+	if (i < n)
+		for(int j = 0; j< n; j++ ){
+			C[n * j + i] = A[i] * B[j];
+		}
+}
 float timedifference_msec(struct timeval t0, struct timeval t1) {
 	return (t1.tv_sec - t0.tv_sec) * 1000.0f
 			+ (t1.tv_usec - t0.tv_usec) / 1000.0f;
@@ -122,7 +166,7 @@ int main(void) {
 	float elapsed;
 
 	//We are using this loop to check how long vectors we can process
-	for (int out = 0; out < 50; out++) {
+	for (int out = 0; out < 4; out++) {
 		char bigEnough[64] = "";
 		sprintf(bigEnough, "%d", numElementsInDim*numElementsInDim);
 		//strcat(bigEnough, numElementsInDim);
@@ -352,6 +396,238 @@ int main(void) {
 		numElementsInDim = numElementsInDim * 10;
 		fclose(execution_time);
 	}
+	numElementsInDim= 10;
+
+	for (int out = 0; out < 4; out++) {
+			char bigEnough[64] = "";
+			sprintf(bigEnough, "%d", numElementsInDim*numElementsInDim);
+			//strcat(bigEnough, numElementsInDim);
+			strcat(bigEnough, "int.txt");
+			FILE* execution_time;
+			execution_time = fopen(bigEnough, "w");
+
+			size_t size = numElementsInDim * numElementsInDim * sizeof(int);
+			printf("[Matrix addition of %d elements]\n",
+					numElementsInDim * numElementsInDim);
+			fprintf(execution_time, "Time for add vectors of %d elements:\n",
+					numElementsInDim * numElementsInDim);
+			// Allocate the host operating vectors
+			int *h_A = (int *) malloc(size);
+			int *h_B = (int *) malloc(size);
+			int *h_C = (int *) malloc(size);
+
+			// Verify that allocations succeeded
+			if (h_A == NULL || h_B == NULL || h_C == NULL) {
+				fprintf(stderr, "Failed to allocate host vectors!\n");
+				exit(EXIT_FAILURE);
+			}
+
+			// Initialize the host input vectors
+			for (int i = 0; i < numElementsInDim * numElementsInDim; ++i) {
+				h_A[i] = rand() / (int) RAND_MAX;
+				h_B[i] = rand() / (int) RAND_MAX;
+			}
+
+			// Allocate the device input vectors A and B
+			int *d_A = NULL;
+			err = cudaMalloc((void **) &d_A, size);
+
+			if (err != cudaSuccess) {
+				fprintf(stderr,
+						"Failed to allocate device vector A (error code %s)!\n",
+						cudaGetErrorString(err));
+				exit(EXIT_FAILURE);
+			}
+
+			int *d_B = NULL;
+			err = cudaMalloc((void **) &d_B, size);
+
+			if (err != cudaSuccess) {
+				fprintf(stderr,
+						"Failed to allocate device vector B (error code %s)!\n",
+						cudaGetErrorString(err));
+				exit(EXIT_FAILURE);
+			}
+
+			// Allocate the device output vector C
+			int *d_C = NULL;
+			err = cudaMalloc((void **) &d_C, size);
+
+			if (err != cudaSuccess) {
+				fprintf(stderr,
+						"Failed to allocate device vector C (error code %s)!\n",
+						cudaGetErrorString(err));
+				exit(EXIT_FAILURE);
+			}
+
+			// Copy the host input vectors A and B in host memory to the device input vectors in
+			// device memory
+			printf("Copy input data from the host memory to the CUDA device\n");
+			err = cudaMemcpy(d_A, h_A, size, cudaMemcpyHostToDevice);
+
+			if (err != cudaSuccess) {
+				fprintf(stderr,
+						"Failed to copy vector A from host to device (error code %s)!\n",
+						cudaGetErrorString(err));
+				exit(EXIT_FAILURE);
+			}
+
+			err = cudaMemcpy(d_B, h_B, size, cudaMemcpyHostToDevice);
+
+			if (err != cudaSuccess) {
+				fprintf(stderr,
+						"Failed to copy vector B from host to device (error code %s)!\n",
+						cudaGetErrorString(err));
+				exit(EXIT_FAILURE);
+			}
+
+			//loop for time measuring:
+			for (int in = 0; in < 10; in++) {
+				// Launch the Vector Add CUDA Kernel
+				int threadsPerBlock = 16;
+				int blocksPerGrid = (numElementsInDim + threadsPerBlock - 1)
+						/ threadsPerBlock;
+				printf("CUDA kernel launch with %d blocks of %d threads\n",
+						blocksPerGrid, threadsPerBlock);
+				cudaEvent_t start, stop;
+				cudaEventCreate(&start);
+				cudaEventCreate(&stop);
+				dim3 dimBlock(16, 16);
+				dim3 dimGrid(blocksPerGrid, blocksPerGrid);
+
+				float milliseconds;
+
+				cudaEventRecord(start);
+				matrixAdd2D<<<dimGrid, dimBlock>>>(d_A, d_B, d_C, numElementsInDim,
+						numElementsInDim);
+				cudaEventRecord(stop);
+				cudaEventSynchronize(stop);
+				cudaEventElapsedTime(&milliseconds, start, stop);
+				fprintf(execution_time, "%f\t", milliseconds);
+
+				dim3 dimBlock1(256, 1);
+				dim3 dimGrid1(blocksPerGrid*blocksPerGrid, 1);
+				cudaEventRecord(start);
+				matrixAdd2D<<<dimGrid1, dimBlock1>>>(d_A, d_B, d_C, numElementsInDim,
+						numElementsInDim);
+				cudaEventRecord(stop);
+				cudaEventSynchronize(stop);
+				cudaEventElapsedTime(&milliseconds, start, stop);
+				fprintf(execution_time, "%f\t", milliseconds);
+
+
+				dim3 dimBlock3(16, 16);
+				dim3 dimGrid3(blocksPerGrid, blocksPerGrid);
+				cudaEventRecord(start);
+				hdamard_2D<<<dimGrid3, dimBlock3>>>(d_A, d_B, d_C, numElementsInDim,
+						numElementsInDim);
+				cudaEventRecord(stop);
+				cudaEventSynchronize(stop);
+				cudaEventElapsedTime(&milliseconds, start, stop);
+				fprintf(execution_time, "%f\t", milliseconds);
+
+
+				dim3 dimBlock2(256, 1);
+				dim3 dimGrid2(blocksPerGrid*blocksPerGrid, 1);
+				cudaEventRecord(start);
+				hdamard_2D<<<dimGrid2, dimBlock2>>>(d_A, d_B, d_C, numElementsInDim,
+						numElementsInDim);
+				cudaEventRecord(stop);
+				cudaEventSynchronize(stop);
+				cudaEventElapsedTime(&milliseconds, start, stop);
+				fprintf(execution_time, "%f\t", milliseconds);
+
+				dim3 dimBlock4(16, 16);
+				dim3 dimGrid4(blocksPerGrid, blocksPerGrid);
+				cudaEventRecord(start);
+				dyadic_2D<<<dimGrid4, dimBlock4>>>(d_A, d_B, d_C, numElementsInDim);
+				cudaEventRecord(stop);
+				cudaEventSynchronize(stop);
+				cudaEventElapsedTime(&milliseconds, start, stop);
+				fprintf(execution_time, "%f\t", milliseconds);
+
+
+				dim3 dimBlock5(256, 1);
+				dim3 dimGrid5(blocksPerGrid*blocksPerGrid, 1);
+				cudaEventRecord(start);
+				dyadic_1D<<<dimGrid5, dimBlock5>>>(d_A, d_B, d_C, numElementsInDim);
+				cudaEventRecord(stop);
+				cudaEventSynchronize(stop);
+				cudaEventElapsedTime(&milliseconds, start, stop);
+				fprintf(execution_time, "%f\n", milliseconds);
+
+				err = cudaGetLastError();
+
+				if (err != cudaSuccess) {
+					fprintf(stderr,
+							"Failed to launch vectorAdd kernel (error code %s)!\n",
+							cudaGetErrorString(err));
+					exit(EXIT_FAILURE);
+				}
+
+
+
+
+			}
+
+			// Copy the device result vector in device memory to the host result vector
+			// in host memory.
+			printf("Copy output data from the CUDA device to the host memory\n");
+			err = cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
+
+			if (err != cudaSuccess) {
+				fprintf(stderr,
+						"Failed to copy vector C from device to host (error code %s)!\n",
+						cudaGetErrorString(err));
+				exit(EXIT_FAILURE);
+			}
+
+	//		// Verify that the result vector is correct
+	//		for (int i = 0; i < numElementsInDim * numElementsInDim; ++i) {
+	//			if (fabs(h_A[i] + h_B[i] - h_C[i]) > 1e-5) {
+	//				fprintf(stderr, "Result verification failed at element %d!\n",
+	//						i);
+	//				exit(EXIT_FAILURE);
+	//			}
+	//		}
+	//
+	//		printf("Test PASSED\n");
+
+			// Free device global memory
+			err = cudaFree(d_A);
+
+			if (err != cudaSuccess) {
+				fprintf(stderr, "Failed to free device vector A (error code %s)!\n",
+						cudaGetErrorString(err));
+				exit(EXIT_FAILURE);
+			}
+
+			err = cudaFree(d_B);
+
+			if (err != cudaSuccess) {
+				fprintf(stderr, "Failed to free device vector B (error code %s)!\n",
+						cudaGetErrorString(err));
+				exit(EXIT_FAILURE);
+			}
+
+			err = cudaFree(d_C);
+
+			if (err != cudaSuccess) {
+				fprintf(stderr, "Failed to free device vector C (error code %s)!\n",
+						cudaGetErrorString(err));
+				exit(EXIT_FAILURE);
+			}
+
+			// Free host memory
+			free(h_A);
+			free(h_B);
+			free(h_C);
+
+			fprintf(execution_time, "\n\n\n");
+
+			numElementsInDim = numElementsInDim * 10;
+			fclose(execution_time);
+		}
 
 	printf("Done\n");
 	return 0;

@@ -11,7 +11,7 @@
 
 
 
-__global__ void matrixMultiplication2D(const float *A, const float *B, float *C, int size) {
+__global__ void matrixMultiplication(const float *A, const float *B, float *C, int size) {
 	
 	int rowIdx = blockIdx.y * size + threadIdx.y;
 	int colIdx = blockIdx.x * size + threadIdx.x;
@@ -26,16 +26,6 @@ __global__ void matrixMultiplication2D(const float *A, const float *B, float *C,
 		}
 		
 		C[rowIdx * size + colIdx] = product;
-	}
-}
-
-__global__ void matrixMultiplication3D(const float *A, const float *B, float *C, int size) {
-
-	int rowIdx = blockIdx.y * size + threadIdx.y;
-	int colIdx = blockIdx.x * size + threadIdx.x;
-	int deepIdx = blockIdx.x * size + threadIdx.x;
-	if(rowIdx < size && colIdx < size && deepIdx < size){
-		C[rowIdx * size + colIdx] += A[rowIdx * size + deepIdx] * B[deepIdx * size + colIddx];
 	}
 }
 
@@ -99,7 +89,7 @@ int main() {
 			checkCUDA(cudaMemcpy(d_A, h_A, cudaMemcpyHostToDevice));
 			checkCUDA(cudaMemcpy(d_B, h_B, cudaMemcpyHostToDevice));
 
-			matrixMultiplication2D<<<blocks, threads>>>(d_A, d_B, d_result, numberOfElementsInDim);
+			matrixMultiplication<<<blocks, threads>>>(d_A, d_B, d_result, numberOfElementsInDim);
 
 			cudaDeviceSynchronize();
 			stop = std::chrono::high_resolution_clock::now();
@@ -137,7 +127,7 @@ int main() {
 				B[j] = static_cast<float>(rand())/RAND_MAX;
 			}
 
-			matrixMultiplication2D<<<blocks, threads>>>(d_A, d_B, d_result, numberOfElementsInDim);
+			matrixMultiplication<<<blocks, threads>>>(d_A, d_B, d_result, numberOfElementsInDim);
 
 			cudaDeviceSynchronize();
 			stop = std::chrono::high_resolution_clock::now();

@@ -1,0 +1,52 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <assert.h>
+
+#include <cuda_runtime.h>
+
+#include <fstream>
+#include <chrono>
+
+
+
+
+__global__ void matrixMultiplication(const float *A, const float *B, float *C, int size) {
+	
+	int rowIdx = blockIdx.y * size + threadIdx.y;
+	int colIdx = blockIdx.x * size + threadIdx.x;
+	
+	if(rowIdx < size && colIdx < size){
+		
+		float product = 0;
+
+		for(int i = 0; i < size; i++){
+
+			product += A[rowIdx * size + i] * B[i * size + colIddx];
+		}
+		
+		C[rowIdx * size + colIdx] = product;
+	}
+}
+
+inline cudaError_t checkCUDA(cudaError_t result){
+
+	if(result != cudaSuccess){
+	
+	fprintf(stderr, "CUDA Runtime error: %s\n", cudaGetErrorString(result));
+	assert(result == cudaSuccess);
+	}	
+	
+	return result;
+}
+
+
+int main() {
+	
+	
+
+
+
+	return 0;
+}
+

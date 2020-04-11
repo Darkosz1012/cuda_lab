@@ -1,0 +1,149 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <assert.h>
+
+#include <cuda_runtime.h>
+
+#include <fstream>
+#include <chrono>
+
+
+
+
+__global__ void matrixMultiplication(const float *A, const float *B, float *C, int size) {
+	
+	int rowIdx = blockIdx.y * size + threadIdx.y;
+	int colIdx = blockIdx.x * size + threadIdx.x;
+	
+	if(rowIdx < size && colIdx < size){
+		
+		float product = 0;
+
+		for(int i = 0; i < size; i++){
+
+			product += A[rowIdx * size + i] * B[i * size + colIddx];
+		}
+		
+		C[rowIdx * size + colIdx] = product;
+	}
+}
+
+inline cudaError_t checkCUDA(cudaError_t result){
+
+	if(result != cudaSuccess){
+	
+	fprintf(stderr, "CUDA Runtime error: %s\n", cudaGetErrorString(result));
+	assert(result == cudaSuccess);
+	}	
+	
+	return result;
+}
+
+
+int main() {
+	
+	float* h_A, h_B, h_result;
+	float* d_A, d_B, d_resulut;
+
+	float* A, B, result;
+
+	int numberOfElementsInDim = 10;
+	int numberOfElemets = numberOElementsInDim*NumberOfElementsInDim;
+	size_t size = numberOfElements * sizeof(float);
+
+	std::ofstream save;
+
+	std::chrono::high_resolution_clock start;
+	std::chrono::high_resolution_clock stop;
+	std::chronoduration<double> elapsed_time;
+
+	for(int i = 0; i < 100; i++){
+
+		//classic mallocs
+		h_A = static_cast<float*>(malloc(size));
+		h_B = static_cast<float*>(malloc(size));
+		h_result = static_cast<float*>(malloc(size));
+
+		//place to prepare grid
+		dim3 blocks;
+		dim3 threads;
+
+		save.open("classic"+std::tostring(numberOfElemetnsInDim)+".txt");
+		for(int k = 0; k < 10; k++){
+
+
+			start = std::chrono::high_resolution_clock::now();
+
+			for(int j = 0; j < numberOfElements; j++){
+
+				h_A[j] = static_cast<float>(rand())/RAND_MAX;
+				h_B[j] = static_cast<float>(rand())/RAND_MAX;
+			}
+
+			checkCUDA(cudaMalloc((void**)&d_A, size));
+			checkCUDA(cudaMalloc((void**)&d_B, size));
+			checkCUDA(cudaMalloc((void**)&d_result, size));
+
+			checkCUDA(cudaMemcpy(d_A, h_A, cudaMemcpyHostToDevice));
+			checkCUDA(cudaMemcpy(d_B, h_B, cudaMemcpyHostToDevice));
+
+			matrixMultiplication<<<blocks, threads>>>(d_A, d_B, d_result, numberOfElementsInDim);
+
+			cudaDeviceSynchronize();
+			stop = std::chrono::high_resolution_clock::now();
+			elapsed_time = stop - start;
+
+			save << elapsed_time << std::endl;
+
+		}
+
+		checkCUDA(cudaFree(d_A));
+		checkCUDA(cudaFree(d_B));
+		checkCUDA(cudaFree(d_result));
+		free(h_A);
+		free(h_B);
+		free(h_result);
+		save.close();
+
+
+		//managed memory tests
+
+		save.open("managed"+std::tostring(numberOfElemetnsInDim)+".txt");
+
+		start = std::chrono::high_resolution_clock::now();
+
+		checkCUDA(cudaMallocMenaged(&A, size));
+		checkCUDA(cudaMallocMenaged(&B, size));
+		checkCUDA(cudaMallocMenaged(&result, size));
+
+		for(int j = 0; j < numberOfElements; j++){
+
+			A[j] = static_cast<float>(rand())/RAND_MAX;
+			B[j] = static_cast<float>(rand())/RAND_MAX;
+		}
+
+		matrixMultiplication<<<blocks, threads>>>(d_A, d_B, d_result, numberOfElementsInDim);
+
+		cudaDeviceSynchronize();
+		stop = std::chrono::high_resolution_clock::now();
+		elapsed_time = stop - start;
+
+		save << elapsed_time << std::endl;
+
+		checkCUDA(cudaFree(A));
+		checkCUDA(cudaFree(B));
+		checkCUDA(cudaFree(result));
+		save.close();
+
+		numberOfElemetnsInDim *=1 0;
+		numberOfElements = numberOfElemetnsInDim * numberOfElemetnsInDim;
+		size = numberOfElemetns * sizeof(float);
+
+	}
+	
+
+
+	return 0;
+}
+

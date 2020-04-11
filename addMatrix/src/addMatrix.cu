@@ -66,6 +66,16 @@ __global__ void matrixAdd1D(const int *A, const int *B, int *C, int n) {
 		C[idx] = A[idx] + B[idx];
 	}
 }
+void add_verification(float* A, float* B, float* C, int number_of_elements){
+
+	for (int i = 0; i < number_of_elements; ++i) {
+		if (fabs(A[i] + B[i] - C[i]) > 1e-5) {
+
+			fprintf(stderr, "Result verification failed at element %d!\n", i);
+			exit(EXIT_FAILURE);
+		}
+	}
+}
 
 
 __global__ void hdamard_2D(const int *A, const int *B, int *C, int nx, int ny) {
@@ -75,6 +85,16 @@ __global__ void hdamard_2D(const int *A, const int *B, int *C, int nx, int ny) {
 	int idx = nx * j + i;
 	if (i < nx && j < ny) {
 		C[idx] = A[idx] * B[idx];
+	}
+}
+void hdamard_verification(float* A, float* B, float* C, int number_of_elements){
+
+	for (int i = 0; i < number_of_elements; ++i) {
+		if (fabs(A[i] * B[i] - C[i]) > 1e-5) {
+
+			fprintf(stderr, "Result verification failed at element %d!\n", i);
+			exit(EXIT_FAILURE);
+		}
 	}
 }
 
@@ -94,6 +114,19 @@ __global__ void dyadic_1D(const int *A, const int *B, int *C, int n) {
 		for(int j = 0; j< n; j++ ){
 			C[n * j + i] = A[i] * B[j];
 		}
+}
+
+void dyadic_verification(float* A, float* B, float* C, int number_of_elements){
+
+	for (int i = 0; i < number_of_elements; ++i) {
+		for (int j = 0; j < number_of_elements; ++j) {
+			if (fabs(A[i] * B[j] - C[number_of_elements * j + i]) > 1e-5) {
+
+				fprintf(stderr, "Result verification failed at element %d!\n", i);
+				exit(EXIT_FAILURE);
+			}
+		}
+	}
 }
 float timedifference_msec(struct timeval t0, struct timeval t1) {
 	return (t1.tv_sec - t0.tv_sec) * 1000.0f
@@ -122,16 +155,7 @@ void prepare_device(float* A, float* B, float* C, int number_of_elements){
 }
 
 
-void add_verification(float* A, float* B, float* C, int number_of_elements){
 
-	for (int i = 0; i < number_of_elements; ++i) {
-		if (fabs(A[i] + B[i] - C[i]) > 1e-5) {
-
-			fprintf(stderr, "Result verification failed at element %d!\n", i);
-			exit(EXIT_FAILURE);
-		}
-	}
-}
 
 void hadamard_verification(float* A, float* B, float* C, int number_of_elements){
 
@@ -272,6 +296,8 @@ int main(void) {
 			cudaEventSynchronize(stop);
 			cudaEventElapsedTime(&milliseconds, start, stop);
 			fprintf(execution_time, "%f\t", milliseconds);
+			err = cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
+			add_verification(h_A,h_B,h_C,numElementsInDim*numElementsInDim);
 
 			dim3 dimBlock1(256, 1);
 			dim3 dimGrid1(blocksPerGrid*blocksPerGrid, 1);
@@ -282,7 +308,8 @@ int main(void) {
 			cudaEventSynchronize(stop);
 			cudaEventElapsedTime(&milliseconds, start, stop);
 			fprintf(execution_time, "%f\t", milliseconds);
-
+			err = cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
+			add_verification(h_A,h_B,h_C,numElementsInDim*numElementsInDim);
 
 			dim3 dimBlock3(16, 16);
 			dim3 dimGrid3(blocksPerGrid, blocksPerGrid);
@@ -293,7 +320,8 @@ int main(void) {
 			cudaEventSynchronize(stop);
 			cudaEventElapsedTime(&milliseconds, start, stop);
 			fprintf(execution_time, "%f\t", milliseconds);
-
+			err = cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
+			hdamard_verification(h_A,h_B,h_C,numElementsInDim*numElementsInDim);
 
 			dim3 dimBlock2(256, 1);
 			dim3 dimGrid2(blocksPerGrid*blocksPerGrid, 1);
@@ -304,6 +332,8 @@ int main(void) {
 			cudaEventSynchronize(stop);
 			cudaEventElapsedTime(&milliseconds, start, stop);
 			fprintf(execution_time, "%f\t", milliseconds);
+			err = cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
+			hdamard_verification(h_A,h_B,h_C,numElementsInDim*numElementsInDim);
 
 			dim3 dimBlock4(16, 16);
 			dim3 dimGrid4(blocksPerGrid, blocksPerGrid);
@@ -313,7 +343,8 @@ int main(void) {
 			cudaEventSynchronize(stop);
 			cudaEventElapsedTime(&milliseconds, start, stop);
 			fprintf(execution_time, "%f\t", milliseconds);
-
+			err = cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
+			dyadic_verification(h_A,h_B,h_C,numElementsInDim);
 
 			dim3 dimBlock5(256, 1);
 			dim3 dimGrid5(blocksPerGrid*blocksPerGrid, 1);
@@ -323,6 +354,8 @@ int main(void) {
 			cudaEventSynchronize(stop);
 			cudaEventElapsedTime(&milliseconds, start, stop);
 			fprintf(execution_time, "%f\n", milliseconds);
+			err = cudaMemcpy(h_C, d_C, size, cudaMemcpyDeviceToHost);
+			dyadic_verification(h_A,h_B,h_C,numElementsInDim);
 
 			err = cudaGetLastError();
 

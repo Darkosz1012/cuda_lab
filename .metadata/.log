@@ -4486,3 +4486,33 @@ java.lang.ClassCastException
 !MESSAGE Internal Error
 !STACK 0
 java.lang.ClassCastException
+
+!ENTRY org.eclipse.cdt.codan.checkers 4 0 2020-04-15 22:15:43.993
+!MESSAGE 
+!STACK 0
+java.lang.ClassCastException
+
+!ENTRY org.eclipse.cdt.codan.core 4 1 2020-04-15 22:15:44.000
+!MESSAGE Internal Error
+!STACK 0
+java.lang.ClassCastException
+
+!ENTRY org.eclipse.cdt.codan.checkers 4 0 2020-04-15 22:17:10.658
+!MESSAGE 
+!STACK 0
+java.lang.ClassCastException
+
+!ENTRY org.eclipse.cdt.codan.core 4 1 2020-04-15 22:17:10.665
+!MESSAGE Internal Error
+!STACK 0
+java.lang.ClassCastException
+
+!ENTRY org.eclipse.cdt.codan.checkers 4 0 2020-04-15 22:17:20.312
+!MESSAGE 
+!STACK 0
+java.lang.ClassCastException
+
+!ENTRY org.eclipse.cdt.codan.core 4 1 2020-04-15 22:17:20.319
+!MESSAGE Internal Error
+!STACK 0
+java.lang.ClassCastException

@@ -1,4 +1,4 @@
-21:03:46 **** Incremental Build of configuration Debug for project multiplication_test ****
+22:17:17 **** Incremental Build of configuration Debug for project multiplication_test ****
 make all 
 Building file: ../src/multiplication_test.cu
 Invoking: NVCC Compiler
@@ -12,5 +12,5 @@ Invoking: NVCC Linker
 Finished building target: multiplication_test
  
 
-21:03:48 Build Finished (took 2s.18ms)
+22:17:19 Build Finished (took 2s.18ms)
 

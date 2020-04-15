@@ -111,7 +111,7 @@ int main() {
 	int startnum = 100;
     int jump = 100;
     int numberOfResult = 70;
-    int numberOfIteration = 1;
+    int numberOfIteration = 3;
     bool check = false;
 
     std::cout<<"start"<<std::endl;

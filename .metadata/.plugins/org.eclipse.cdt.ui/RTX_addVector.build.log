@@ -1,6 +1,66 @@
-15:39:16 **** Incremental Build of configuration Debug for project RTX_addVector ****
+21:01:07 **** Build of configuration Debug for project RTX_addVector ****
 make all 
-make: Nothing to be done for `all'.
+Building file: ../src/vectorAdd.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -I"/usr/local/cuda-10.1/samples/0_Simple" -I"/usr/local/cuda-10.1/samples/common/inc" -I"/home/cuda-lab07/cuda-workspace/RTX_addVector" -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/vectorAdd.d" "../src/vectorAdd.cu"
+/usr/local/cuda-10.1/bin/nvcc -I"/usr/local/cuda-10.1/samples/0_Simple" -I"/usr/local/cuda-10.1/samples/common/inc" -I"/home/cuda-lab07/cuda-workspace/RTX_addVector" -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/vectorAdd.o" "../src/vectorAdd.cu"
+../src/vectorAdd.cu(44): error: expected a ";"
 
-15:39:16 Build Finished (took 84ms)
+../src/vectorAdd.cu(72): warning: parsing restarts here after previous syntax error
+
+../src/vectorAdd.cu(74): error: identifier "execution_time" is undefined
+
+../src/vectorAdd.cu(76): error: identifier "size" is undefined
+
+../src/vectorAdd.cu(82): warning: a host variable "stderr" cannot be directly read in a device function
+
+../src/vectorAdd.cu(92): error: identifier "t0" is undefined
+
+../src/vectorAdd.cu(95): error: identifier "err" is undefined
+
+../src/vectorAdd.cu(98): warning: a host variable "stderr" cannot be directly read in a device function
+
+../src/vectorAdd.cu(108): warning: a host variable "stderr" cannot be directly read in a device function
+
+../src/vectorAdd.cu(119): warning: a host variable "stderr" cannot be directly read in a device function
+
+../src/vectorAdd.cu(131): warning: a host variable "stderr" cannot be directly read in a device function
+
+../src/vectorAdd.cu(140): warning: a host variable "stderr" cannot be directly read in a device function
+
+../src/vectorAdd.cu(160): error: kernel launch from __device__ or __global__ functions requires separate compilation mode
+
+../src/vectorAdd.cu(171): warning: a host variable "stderr" cannot be directly read in a device function
+
+../src/vectorAdd.cu(191): warning: a host variable "stderr" cannot be directly read in a device function
+
+../src/vectorAdd.cu(196): error: identifier "t1" is undefined
+
+../src/vectorAdd.cu(197): error: identifier "elapsed" is undefined
+
+../src/vectorAdd.cu(203): warning: a host variable "stderr" cannot be directly read in a device function
+
+../src/vectorAdd.cu(215): warning: a host variable "stderr" cannot be directly read in a device function
+
+../src/vectorAdd.cu(223): warning: a host variable "stderr" cannot be directly read in a device function
+
+../src/vectorAdd.cu(231): warning: a host variable "stderr" cannot be directly read in a device function
+
+../src/vectorAdd.cu(149): warning: variable "threads" was declared but never referenced
+
+../src/vectorAdd.cu(248): error: this declaration has no storage class or type specifier
+
+../src/vectorAdd.cu(248): error: declaration is incompatible with "int printf(const char *, ...)"
+/usr/local/cuda-10.1/bin/../targets/x86_64-linux/include/crt/common_functions.h(145): here
+
+../src/vectorAdd.cu(248): error: a value of type "const char *" cannot be used to initialize an entity of type "int"
+
+../src/vectorAdd.cu(249): error: expected a declaration
+
+../src/vectorAdd.cu(250): error: expected a declaration
+
+13 errors detected in the compilation of "/tmp/tmpxft_00003dad_00000000-7_vectorAdd.compute_75.cpp1.ii".
+make: *** [src/vectorAdd.o] Error 1
+
+21:01:08 Build Finished (took 515ms)
 

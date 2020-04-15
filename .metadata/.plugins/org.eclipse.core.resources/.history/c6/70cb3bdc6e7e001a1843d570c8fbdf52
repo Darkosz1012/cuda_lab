@@ -1,0 +1,372 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <assert.h>
+
+#include <cuda_runtime.h>
+
+#include <fstream>
+#include <chrono>
+#include <iostream>
+
+
+
+__global__ void matrixMultiplication2D(const double *A, const double *B, double *C, int size) {
+
+	int rowIdx = blockIdx.y * blockDim.y + threadIdx.y;
+	int colIdx = blockIdx.x * blockDim.x + threadIdx.x;
+
+	if(rowIdx < size && colIdx < size){
+
+		double product = 0;
+
+		for(int i = 0; i < size; i++){
+
+			product += A[rowIdx * size + i] * B[i * size + colIdx];
+		}
+
+		C[rowIdx * size + colIdx] = product;
+	}
+}
+
+
+__global__ void strirde_MatrixMultiplication(const double* A, const double* B, double* result, int size){
+
+	int indx = blockIdx.x * blockDim.x + threadIdx.x;
+	int jndx = blockIdx.y;
+
+	double value = 0;
+
+	for(int i = 0; i < size; i++){
+
+		value += A[indx + i * size] * B[i + jndx * size];
+	}
+
+	result[indx + size * jndx] = size;
+}
+
+
+__global__ void matrixMultiplication3D(const double *A, const double *B, double *C, int size) {
+
+	int rowIdx = blockIdx.y * blockDim.y + threadIdx.y;
+	int colIdx = blockIdx.x * blockDim.x + threadIdx.x;
+	int deepIdx = blockIdx.z * blockDim.z + threadIdx.z;
+	if(rowIdx < size && colIdx < size && deepIdx < size){
+		C[rowIdx * size + colIdx] += A[rowIdx * size + deepIdx] * B[deepIdx * size + colIdx];
+	}
+}
+
+void checkMatrixMul( double* a, double* b, double* c, int N)
+{
+    double val = 0;
+
+    for( int row = 0; row < N; row++ )
+        for( int col = 0; col < N; col++ )
+        {
+            val = 0;
+            for ( int k = 0; k < N; k++ )
+                val += a[row * N + k] * b[k * N + col];
+            if(abs(c[row * N + col] - val)>0.01)
+                std::cout<<"Error: Result " << row << " "<<col << " "<< c[row * N + col] <<" "<< val<<std::endl;
+        }
+}
+
+inline cudaError_t checkCUDA(cudaError_t result){
+
+	if(result != cudaSuccess){
+
+		fprintf(stderr, "CUDA Runtime error: %s\n", cudaGetErrorString(result));
+		assert(result == cudaSuccess);
+	}
+
+	return result;
+}
+
+
+
+int main() {
+
+	double* h_A, *h_B, *h_result;
+	double* d_A, *d_B, *d_result;
+
+	double* A, *B, *result;
+
+	int numberOfElementsInDim;
+	int numberOfElemets;
+	size_t size;
+
+	std::ofstream save;
+
+	std::chrono::system_clock::time_point start;
+	std::chrono::system_clock::time_point stop;
+	std::chrono::duration<double> elapsed_time;
+
+	int startnum = 10;
+    int jump = 100;
+    int numberOfResult = 1;
+    int numberOfIteration = 1;
+    bool check = true;
+
+    std::cout<<"start"<<std::endl;
+
+
+    numberOfElementsInDim = startnum;
+	numberOfElemets = numberOfElementsInDim * numberOfElementsInDim;
+	size = numberOfElemets * sizeof(double);
+
+    std::cout<<"classic_2D"<<std::endl;
+    save.open("classic_2D.txt");
+	for(int i = 0; i < numberOfResult; i++){
+
+        double average = 0;
+		for(int k = 0; k < numberOfIteration; k++){
+
+			start = std::chrono::high_resolution_clock::now();
+
+			h_A = static_cast<double*>(malloc(size));
+			h_B = static_cast<double*>(malloc(size));
+			h_result = static_cast<double*>(malloc(size));
+
+			for(int j = 0; j < numberOfElemets; j++){
+
+				h_A[j] = static_cast<double>(rand())/(RAND_MAX/1.);
+				h_B[j] = static_cast<double>(rand())/(RAND_MAX/1.);
+				h_result[j] = 0;
+
+			}
+
+			checkCUDA(cudaMalloc((void**)&d_A, size));
+			checkCUDA(cudaMalloc((void**)&d_B, size));
+			checkCUDA(cudaMalloc((void**)&d_result, size));
+
+			checkCUDA(cudaMemcpy(d_A, h_A, size, cudaMemcpyHostToDevice));
+			checkCUDA(cudaMemcpy(d_B, h_B, size, cudaMemcpyHostToDevice));
+
+            dim3 threads_per_block (16, 16, 1); // A 16 x 16 block threads
+            dim3 number_of_blocks ((numberOfElementsInDim / threads_per_block.x) + 1, (numberOfElementsInDim / threads_per_block.y) + 1, 1);
+
+            matrixMultiplication2D<<<number_of_blocks, threads_per_block>>>(d_A, d_B, d_result, numberOfElementsInDim);
+
+            cudaDeviceSynchronize();
+
+			stop = std::chrono::high_resolution_clock::now();
+			elapsed_time = stop - start;
+			average = (average * k + elapsed_time.count()) / (k + 1);
+
+			if(k==0 && check==true){
+
+				checkCUDA(cudaMemcpy(h_result, d_result, size, cudaMemcpyDeviceToHost));
+				checkMatrixMul(h_A, h_B, h_result, numberOfElementsInDim);
+			}
+
+			checkCUDA(cudaFree(d_A));
+			checkCUDA(cudaFree(d_B));
+			checkCUDA(cudaFree(d_result));
+			free(h_A);
+			free(h_B);
+			free(h_result);
+		}
+
+        save << numberOfElemets <<"\t"<< numberOfElementsInDim <<"\t" << average << std::endl;
+        std::cout << numberOfElemets <<"\t"<< numberOfElementsInDim <<"\t" << average << std::endl;
+
+        numberOfElementsInDim += jump;
+        numberOfElemets = numberOfElementsInDim * numberOfElementsInDim;
+		size = numberOfElemets * sizeof(double);
+	}
+
+    save.close();
+
+
+    numberOfElementsInDim = startnum;
+	numberOfElemets = numberOfElementsInDim * numberOfElementsInDim;
+	size = numberOfElemets * sizeof(double);
+
+	std::cout<<"managed_2D"<<std::endl;
+    save.open("managed_2D.txt");
+
+	for(int i = 0; i < numberOfResult; i++){
+
+        double average = 0;
+
+		for(int k = 0; k < numberOfIteration; k++){
+
+			start = std::chrono::high_resolution_clock::now();
+
+			checkCUDA(cudaMallocManaged(&A, size));
+			checkCUDA(cudaMallocManaged(&B, size));
+			checkCUDA(cudaMallocManaged(&result, size));
+
+			for(int j = 0; j < numberOfElemets; j++){
+				A[j] = static_cast<double>(rand())/(RAND_MAX/1.);
+				B[j] = static_cast<double>(rand())/(RAND_MAX/1.);
+				result[j] = 0;
+			}
+
+			dim3 threads_per_block (16, 16, 1); // A 16 x 16 block threads
+			dim3 number_of_blocks ((numberOfElementsInDim / threads_per_block.x) + 1, (numberOfElementsInDim / threads_per_block.y) + 1, 1);
+
+            matrixMultiplication2D<<<number_of_blocks, threads_per_block>>>(A, B, result, numberOfElementsInDim);
+
+            cudaDeviceSynchronize();
+
+			stop = std::chrono::high_resolution_clock::now();
+			elapsed_time = stop - start;
+            average = (average * k + elapsed_time.count()) / (k + 1);
+
+            if(k==0 && check==true){
+
+            	checkMatrixMul(A, B, result, numberOfElementsInDim);
+            }
+
+            checkCUDA(cudaFree(A));
+            checkCUDA(cudaFree(B));
+            checkCUDA(cudaFree(result));
+
+		}
+
+        save << numberOfElemets <<"\t"<< numberOfElementsInDim <<"\t" << average << std::endl;
+        std::cout << numberOfElemets <<"\t"<< numberOfElementsInDim <<"\t" << average << std::endl;
+
+		numberOfElementsInDim += jump;
+		numberOfElemets = numberOfElementsInDim * numberOfElementsInDim;
+		size = numberOfElemets * sizeof(double);
+	}
+
+    save.close();
+
+
+
+
+
+
+
+    numberOfElementsInDim = startnum;
+	numberOfElemets = numberOfElementsInDim * numberOfElementsInDim;
+	size = numberOfElemets * sizeof(double);
+
+	std::cout << "classic_3D" << std::endl;
+	save.open("classic_3D.txt");
+
+	for(int i = 0; i < numberOfResult; i++){
+
+		double average = 0;
+
+		for(int k = 0; k < numberOfIteration; k++){
+
+			start = std::chrono::high_resolution_clock::now();
+
+			h_A = static_cast<double*>(malloc(size));
+			h_B = static_cast<double*>(malloc(size));
+			h_result = static_cast<double*>(malloc(size));
+
+			for(int j = 0; j < numberOfElemets; j++){
+
+				h_A[j] = static_cast<double>(rand())/(RAND_MAX/1.);
+				h_B[j] = static_cast<double>(rand())/(RAND_MAX/1.);
+				h_result[j] = 0;
+
+			}
+
+			checkCUDA(cudaMalloc((void**)&d_A, size));
+			checkCUDA(cudaMalloc((void**)&d_B, size));
+			checkCUDA(cudaMalloc((void**)&d_result, size));
+
+			checkCUDA(cudaMemcpy(d_A, h_A, size, cudaMemcpyHostToDevice));
+			checkCUDA(cudaMemcpy(d_B, h_B, size, cudaMemcpyHostToDevice));
+
+			dim3 threads_per_block (8, 8, 8); // A 16 x 16 block threads
+			dim3 number_of_blocks ((numberOfElementsInDim / threads_per_block.x) + 1, (numberOfElementsInDim / threads_per_block.y) + 1, (numberOfElementsInDim / threads_per_block.z) + 1);
+
+			matrixMultiplication3D<<<number_of_blocks, threads_per_block>>>(d_A, d_B, d_result, numberOfElementsInDim);
+
+			cudaDeviceSynchronize();
+
+			stop = std::chrono::high_resolution_clock::now();
+			elapsed_time = stop - start;
+			average = (average * k + elapsed_time.count()) / (k + 1);
+
+			if(k == 0 && check == true){
+
+				checkCUDA(cudaMemcpy(h_result, d_result, size, cudaMemcpyDeviceToHost));
+				checkMatrixMul(h_A, h_B, h_result, numberOfElementsInDim);
+			}
+
+			checkCUDA(cudaFree(d_A));
+			checkCUDA(cudaFree(d_B));
+			checkCUDA(cudaFree(d_result));
+			free(h_A);
+			free(h_B);
+			free(h_result);
+		}
+
+		save << numberOfElemets <<"\t"<< numberOfElementsInDim <<"\t" << average << std::endl;
+		std::cout << numberOfElemets <<"\t"<< numberOfElementsInDim <<"\t" << average << std::endl;
+
+		numberOfElementsInDim += jump;
+		numberOfElemets = numberOfElementsInDim * numberOfElementsInDim;
+		size = numberOfElemets * sizeof(double);
+	}
+
+	save.close();
+
+
+	numberOfElementsInDim = startnum;
+	numberOfElemets = numberOfElementsInDim * numberOfElementsInDim;
+	size = numberOfElemets * sizeof(double);
+
+	std::cout<<"managed_3D"<<std::endl;
+	save.open("managed_3D.txt");
+
+	for(int i = 0; i < numberOfResult; i++){
+
+		double average = 0;
+
+		for(int k = 0; k < numberOfIteration; k++){
+
+			start = std::chrono::high_resolution_clock::now();
+
+			checkCUDA(cudaMallocManaged(&A, size));
+			checkCUDA(cudaMallocManaged(&B, size));
+			checkCUDA(cudaMallocManaged(&result, size));
+
+			for(int j = 0; j < numberOfElemets; j++){
+				A[j] = static_cast<double>(rand())/(RAND_MAX/1.);
+				B[j] = static_cast<double>(rand())/(RAND_MAX/1.);
+				result[j] = 0;
+			}
+
+			dim3 threads_per_block (8, 8, 8); // A 16 x 16 block threads
+			dim3 number_of_blocks ((numberOfElementsInDim / threads_per_block.x) + 1, (numberOfElementsInDim / threads_per_block.y) + 1, (numberOfElementsInDim / threads_per_block.z) + 1);
+
+			matrixMultiplication3D<<<number_of_blocks, threads_per_block>>>(A, B, result, numberOfElementsInDim);
+
+			cudaDeviceSynchronize();
+
+			stop = std::chrono::high_resolution_clock::now();
+			elapsed_time = stop - start;
+			average = (average * k + elapsed_time.count()) / (k + 1);
+
+			if(k == 0 && check == true){
+
+				checkMatrixMul(A, B, result, numberOfElementsInDim);
+			}
+			checkCUDA(cudaFree(A));
+			checkCUDA(cudaFree(B));
+			checkCUDA(cudaFree(result));
+
+		}
+
+		save << numberOfElemets <<"\t"<< numberOfElementsInDim <<"\t" << average << std::endl;
+		std::cout << numberOfElemets <<"\t"<< numberOfElementsInDim <<"\t" << average << std::endl;
+
+		numberOfElementsInDim += jump;
+		numberOfElemets = numberOfElementsInDim * numberOfElementsInDim;
+		size = numberOfElemets * sizeof(double);
+	}
+
+	save.close();
+
+	return 0;
+}
+

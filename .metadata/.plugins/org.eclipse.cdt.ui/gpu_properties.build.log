@@ -1,6 +1,6 @@
-17:27:19 **** Incremental Build of configuration Debug for project gpu_properties ****
+20:11:25 **** Build of configuration Debug for project gpu_properties ****
 make all 
 make: Nothing to be done for `all'.
 
-17:27:19 Build Finished (took 69ms)
+20:11:25 Build Finished (took 78ms)
 

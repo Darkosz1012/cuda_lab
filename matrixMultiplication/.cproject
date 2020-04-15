@@ -45,12 +45,16 @@
 					</folderInfo>
 					<fileInfo id="com.nvidia.cuda.ide.ten_one.configuration.debug.153742615.1204928086" name="matrixMultiplication.cu" rcbsApplicability="disable" resourcePath="src/matrixMultiplication.cu" toolsToInvoke="nvcc.compiler.base.567591863.1324943122">
 						<tool id="nvcc.compiler.base.567591863.1324943122" name="NVCC Compiler" superClass="nvcc.compiler.base.567591863">
-							<option id="nvcc.compiler.cpp11option.127828627" superClass="nvcc.compiler.cpp11option" value="true" valueType="boolean"/>
+							<option id="nvcc.compiler.cpp11option.127828627" name="Enable C++11 support (-std=c++11)" superClass="nvcc.compiler.cpp11option" value="true" valueType="boolean"/>
 							<inputType id="nvcc.compiler.input.cu.794135634" superClass="nvcc.compiler.input.cu"/>
 							<inputType id="nvcc.compiler.input.cpp.1850068716" superClass="nvcc.compiler.input.cpp"/>
 							<inputType id="nvcc.compiler.input.c.1948817472" superClass="nvcc.compiler.input.c"/>
 						</tool>
 					</fileInfo>
+					<sourceEntries>
+						<entry excluding="src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+					</sourceEntries>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="com.nvidia.cuda.ide.build.project.ICudaProjectConfiguration">
@@ -104,6 +108,10 @@
 							</tool>
 						</toolChain>
 					</folderInfo>
+					<sourceEntries>
+						<entry excluding="src" flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name=""/>
+						<entry flags="VALUE_WORKSPACE_PATH|RESOLVED" kind="sourcePath" name="src"/>
+					</sourceEntries>
 				</configuration>
 			</storageModule>
 			<storageModule moduleId="com.nvidia.cuda.ide.build.project.ICudaProjectConfiguration">
@@ -132,4 +140,5 @@
 		</scannerConfigBuildInfo>
 	</storageModule>
 	<storageModule moduleId="org.eclipse.cdt.core.LanguageSettingsProviders"/>
+	<storageModule moduleId="org.eclipse.cdt.make.core.buildtargets"/>
 </cproject>

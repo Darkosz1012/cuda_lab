@@ -1,0 +1,16 @@
+21:03:46 **** Incremental Build of configuration Debug for project multiplication_test ****
+make all 
+Building file: ../src/multiplication_test.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/multiplication_test.d" "../src/multiplication_test.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/multiplication_test.o" "../src/multiplication_test.cu"
+Finished building: ../src/multiplication_test.cu
+ 
+Building target: multiplication_test
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "multiplication_test"  ./src/multiplication_test.o   
+Finished building target: multiplication_test
+ 
+
+21:03:48 Build Finished (took 2s.18ms)
+

@@ -72,18 +72,18 @@ void vectorAddPre(int N, int numberOfSMs, int deviceId, int pre){
 
 	switch(pre){
 		case 3:{
-			cudaMemPrefetchAsync(result, size, deviceId);
-			cudaMemPrefetchAsync(B, size, deviceId);
-			cudaMemPrefetchAsync(A, size, deviceId);
+			cudaMemPrefetchAsync(result, size, cudaCpuDeviceId);
+			cudaMemPrefetchAsync(B, size, cudaCpuDeviceId);
+			cudaMemPrefetchAsync(A, size, cudaCpuDeviceId);
 			break;
 		}
 		case 2:{
-			cudaMemPrefetchAsync(B, size, deviceId);
-			cudaMemPrefetchAsync(A, size, deviceId);
+			cudaMemPrefetchAsync(B, size, cudaCpuDeviceId);
+			cudaMemPrefetchAsync(A, size, cudaCpuDeviceId);
 			break;
 		}
 		case 1:{
-			cudaMemPrefetchAsync(A, size, deviceId);
+			cudaMemPrefetchAsync(A, size, cudaCpuDeviceId);
 			break;
 		}
 		default: break;
@@ -94,7 +94,7 @@ void vectorAddPre(int N, int numberOfSMs, int deviceId, int pre){
 		result[j] = 0;
 	}
 
-	//cudaMemPrefetchAsync(A, size, deviceId);
+	cudaMemPrefetchAsync(A, size, deviceId);
 
 	//vectorAdd<<<(N / 256) + 1, 256>>>(A, B, result, N);
 	addVectorsInto<<<32* numberOfSMs, 256>>>(A, B, result, N);

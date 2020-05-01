@@ -72,21 +72,17 @@ void vectorAddPre(int N, int numberOfSMs, int deviceId, int pre){
 
 	switch(pre){
 		case 3:{
-			cudaMemPrefetchAsync(result, size, deviceId);
-			cudaMemPrefetchAsync(B, size, deviceId);
-			cudaMemPrefetchAsync(A, size, deviceId);
-			break;
-		}
+			cudaMemPrefetchAsync(result, size, cudaCpuDeviceId);
+			cudaMemPrefetchAsync(B, size, cudaCpuDeviceId);
+			cudaMemPrefetchAsync(A, size, cudaCpuDeviceId);
+		};
 		case 2:{
-			cudaMemPrefetchAsync(B, size, deviceId);
-			cudaMemPrefetchAsync(A, size, deviceId);
-			break;
-		}
+			cudaMemPrefetchAsync(B, size, cudaCpuDeviceId);
+			cudaMemPrefetchAsync(A, size, cudaCpuDeviceId);
+		};
 		case 1:{
-			cudaMemPrefetchAsync(A, size, deviceId);
-			break;
-		}
-		default: break;
+			cudaMemPrefetchAsync(A, size, cudaCpuDeviceId);
+		};
 	}
 	for(int j = 0; j < N; j++){
 		A[j] = static_cast<double>(rand())/(RAND_MAX/1.);
@@ -94,7 +90,7 @@ void vectorAddPre(int N, int numberOfSMs, int deviceId, int pre){
 		result[j] = 0;
 	}
 
-	//cudaMemPrefetchAsync(A, size, deviceId);
+	cudaMemPrefetchAsync(A, size, deviceId);
 
 	//vectorAdd<<<(N / 256) + 1, 256>>>(A, B, result, N);
 	addVectorsInto<<<32* numberOfSMs, 256>>>(A, B, result, N);
@@ -123,7 +119,7 @@ int main(){
 	for(int p = 0; p < 4; p++){
 		for(int i = 10; i < 1e9 ; i*=10){
 			start = std::chrono::high_resolution_clock::now();
-			vectorAddPre(i,numberOfSMs,deviceId,p);
+			vectorAddPre(i,numberOfSMs,deviceId,3);
 			stop = std::chrono::high_resolution_clock::now();
 			elapsed_time = stop - start;
 			save << p <<"\t"<< i <<"\t"<<elapsed_time.count()  << std::endl;

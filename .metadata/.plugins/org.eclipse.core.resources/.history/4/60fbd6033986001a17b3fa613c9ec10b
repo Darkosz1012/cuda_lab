@@ -94,7 +94,7 @@ void vectorAddPre(int N, int numberOfSMs, int deviceId, int pre){
 		result[j] = 0;
 	}
 
-	//cudaMemPrefetchAsync(A, size, deviceId);
+	cudaMemPrefetchAsync(A, size, deviceId);
 
 	//vectorAdd<<<(N / 256) + 1, 256>>>(A, B, result, N);
 	addVectorsInto<<<32* numberOfSMs, 256>>>(A, B, result, N);

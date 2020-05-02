@@ -1,13 +1,16 @@
-21:52:33 **** Incremental Build of configuration Debug for project multiplication_test ****
+20:51:47 **** Incremental Build of configuration Debug for project multiplication_test ****
 make all 
 Building file: ../src/multiplication_test.cu
 Invoking: NVCC Compiler
 /usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/multiplication_test.d" "../src/multiplication_test.cu"
 /usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/multiplication_test.o" "../src/multiplication_test.cu"
-../src/multiplication_test.cu(133): error: expected a ";"
+Finished building: ../src/multiplication_test.cu
+ 
+Building target: multiplication_test
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "multiplication_test"  ./src/multiplication_test.o   
+Finished building target: multiplication_test
+ 
 
-1 error detected in the compilation of "/tmp/tmpxft_0000214c_00000000-7_multiplication_test.compute_75.cpp1.ii".
-make: *** [src/multiplication_test.o] Error 1
-
-21:52:33 Build Finished (took 615ms)
+20:51:49 Build Finished (took 2s.376ms)
 

@@ -1,0 +1,28 @@
+21:45:57 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+
+21:45:59 Build Finished (took 2s.374ms)
+

@@ -1,0 +1,108 @@
+/*
+ ============================================================================
+ Name        : add_vector_with_streams.cu
+ Author      : 
+ Version     :
+ Copyright   : Your copyright notice
+ Description : CUDA compute reciprocals
+ ============================================================================
+ */
+
+#include <iostream>
+#include <numeric>
+#include <stdlib.h>
+#include <fstream>
+#include <chrono>
+
+
+__global__ void addVector(float* a, float* b, float* c, int N) {
+
+    int stride = blockDim.x * gridDim.x;
+    for (int i = blockIdx.x * blockDim.x + threadIdx.x; i < N;  i += stride) {
+
+          c[i] = a[i] + b[i];
+      }
+}
+
+
+
+__global__
+void init( float *a, int n)
+{
+
+  int index = threadIdx.x + blockIdx.x * blockDim.x;
+  int stride = blockDim.x * gridDim.x;
+
+  for(int i = index; i < n; i += stride)
+  {
+    a[i]=static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/1000));
+  }
+}
+
+void addWithStreams(){
+	std::chrono::system_clock::time_point start;
+	std::chrono::system_clock::time_point stop;
+	std::chrono::duration<double> elapsed_time;
+	int deviceId;
+	int numberOfSMs;
+	
+	cudaGetDevice(&deviceId);
+	cudaDeviceGetAttribute(&numberOfSMs, cudaDevAttrMultiProcessorCount, deviceId);
+	const int N = 2<<24;
+	size_t size = N * sizeof(float);
+	size_t big = N * 300* sizeof(float);
+	float *data;
+	cudaMallocManaged(&data, big);
+	cudaMemPrefetchAsync(data, big, deviceId);
+	cudaStream_t streams[100];
+	start = std::chrono::high_resolution_clock::now();
+	for(int i = 0; i < 100; i++){
+		size_t threadsPerBlock = 256;
+		size_t numberOfBlocks = numberOfSMs * 32;
+		init<<<numberOfBlocks, threadsPerBlock, 0, streams[i]>>>(&data[i*N], N);
+		init<<<numberOfBlocks, threadsPerBlock, 0, streams[i]>>>(&data[i*N+N*100], N);
+		addVector<<<numberOfBlocks, threadsPerBlock, 0, streams[i]>>>(&data[i*N],&data[i*N+N*100],&data[i*N+N*200], N);
+	}
+	cudaDeviceSynchronize();
+	stop = std::chrono::high_resolution_clock::now();
+	elapsed_time = stop - start;
+	std::cout << "with: "<< elapsed_time.count() << std::endl;
+	cudaDeviceReset();
+}
+void addWithoutStreams(){
+	std::chrono::system_clock::time_point start;
+	std::chrono::system_clock::time_point stop;
+	std::chrono::duration<double> elapsed_time;
+	int deviceId;
+	int numberOfSMs;
+
+	cudaGetDevice(&deviceId);
+	cudaDeviceGetAttribute(&numberOfSMs, cudaDevAttrMultiProcessorCount, deviceId);
+	const int N = 2<<24;
+	size_t size = N * sizeof(float);
+	size_t big = N * 300* sizeof(float);
+	float *data;
+	cudaMallocManaged(&data, big);
+	cudaMemPrefetchAsync(data, big, deviceId);
+	start = std::chrono::high_resolution_clock::now();
+	for(int i = 0; i < 100; i++){
+		size_t threadsPerBlock = 256;
+		size_t numberOfBlocks = numberOfSMs * 32;
+		init<<<numberOfBlocks, threadsPerBlock>>>(&data[i*N], N);
+		init<<<numberOfBlocks, threadsPerBlock>>>(&data[i*N+N*100], N);
+		cudaDeviceSynchronize();
+		addVector<<<numberOfBlocks, threadsPerBlock>>>(&data[i*N],&data[i*N+N*100],&data[i*N+N*200], N);
+	}
+	cudaDeviceSynchronize();
+	stop = std::chrono::high_resolution_clock::now();
+	elapsed_time = stop - start;
+	std::cout << "without: "<<elapsed_time.count() << std::endl;
+	cudaFree(data);
+	cudaStreamDestroy(streams);
+}
+
+int main()
+{
+	addWithStreams();
+	addWithoutStreams();
+}

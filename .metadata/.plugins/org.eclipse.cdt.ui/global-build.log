@@ -219,3 +219,1911 @@ Finished building target: prefetch
 16:37:59 **** Incremental Build of configuration Debug for project prefetch ****
 make all 
 make: Nothing to be done for `all'.
+20:32:12 **** Build of configuration Debug for project heat_conduction ****
+make all 
+Building file: ../src/heat_conduction.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/heat_conduction.d" "../src/heat_conduction.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/heat_conduction.o" "../src/heat_conduction.cu"
+Finished building: ../src/heat_conduction.cu
+ 
+Building target: heat_conduction
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "heat_conduction"  ./src/heat_conduction.o   
+Finished building target: heat_conduction
+ 
+20:32:19 **** Incremental Build of configuration Debug for project heat_conduction ****
+make all 
+make: Nothing to be done for `all'.
+20:38:26 **** Incremental Build of configuration Debug for project heat_conduction ****
+make all 
+Building file: ../src/heat_conduction.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/heat_conduction.d" "../src/heat_conduction.cu"
+In file included from /usr/include/c++/4.8.2/chrono:35:0,
+                 from ../src/heat_conduction.cu:4:
+/usr/include/c++/4.8.2/bits/c++0x_warning.h:32:2: error: #error This file requires compiler and library support for the ISO C++ 2011 standard. This support is currently experimental, and must be enabled with the -std=c++11 or -std=gnu++11 compiler options.
+ #error This file requires compiler and library support for the \
+  ^
+make: *** [src/heat_conduction.o] Error 1
+20:41:25 **** Incremental Build of configuration Debug for project heat_conduction ****
+make all 
+Building file: ../src/heat_conduction.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/heat_conduction.d" "../src/heat_conduction.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/heat_conduction.o" "../src/heat_conduction.cu"
+../src/heat_conduction.cu(77): error: namespace "std" has no member "chronoduration"
+
+../src/heat_conduction.cu(77): error: type name is not allowed
+
+../src/heat_conduction.cu(77): error: identifier "elapsed_time" is undefined
+
+../src/heat_conduction.cu(102): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(111): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(112): error: no operator "-" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock - std::chrono::_V2::high_resolution_clock
+
+../src/heat_conduction.cu(115): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(124): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(125): error: no operator "-" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock - std::chrono::_V2::high_resolution_clock
+
+9 errors detected in the compilation of "/tmp/tmpxft_00006b6f_00000000-7_heat_conduction.compute_75.cpp1.ii".
+make: *** [src/heat_conduction.o] Error 1
+20:42:51 **** Incremental Build of configuration Debug for project heat_conduction ****
+make all 
+Building file: ../src/heat_conduction.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/heat_conduction.d" "../src/heat_conduction.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/heat_conduction.o" "../src/heat_conduction.cu"
+../src/heat_conduction.cu(102): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(111): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(112): error: no operator "-" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock - std::chrono::_V2::high_resolution_clock
+
+../src/heat_conduction.cu(115): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(124): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(125): error: no operator "-" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock - std::chrono::_V2::high_resolution_clock
+
+6 errors detected in the compilation of "/tmp/tmpxft_00006c18_00000000-7_heat_conduction.compute_75.cpp1.ii".
+make: *** [src/heat_conduction.o] Error 1
+20:44:05 **** Incremental Build of configuration Debug for project heat_conduction ****
+make all 
+Building file: ../src/heat_conduction.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/heat_conduction.d" "../src/heat_conduction.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/heat_conduction.o" "../src/heat_conduction.cu"
+../src/heat_conduction.cu(102): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(111): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(112): error: no operator "-" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock - std::chrono::_V2::high_resolution_clock
+
+../src/heat_conduction.cu(115): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(124): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(125): error: no operator "-" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock - std::chrono::_V2::high_resolution_clock
+
+6 errors detected in the compilation of "/tmp/tmpxft_00006cc5_00000000-7_heat_conduction.compute_75.cpp1.ii".
+make: *** [src/heat_conduction.o] Error 1
+20:44:06 **** Incremental Build of configuration Debug for project heat_conduction ****
+make all 
+Building file: ../src/heat_conduction.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/heat_conduction.d" "../src/heat_conduction.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/heat_conduction.o" "../src/heat_conduction.cu"
+../src/heat_conduction.cu(102): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(111): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(112): error: no operator "-" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock - std::chrono::_V2::high_resolution_clock
+
+../src/heat_conduction.cu(115): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(124): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(125): error: no operator "-" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock - std::chrono::_V2::high_resolution_clock
+
+6 errors detected in the compilation of "/tmp/tmpxft_00006d0d_00000000-7_heat_conduction.compute_75.cpp1.ii".
+make: *** [src/heat_conduction.o] Error 1
+20:45:30 **** Incremental Build of configuration Debug for project heat_conduction ****
+make all 
+Building file: ../src/heat_conduction.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/heat_conduction.d" "../src/heat_conduction.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/heat_conduction.o" "../src/heat_conduction.cu"
+../src/heat_conduction.cu(102): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(111): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(112): error: no operator "-" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock - std::chrono::_V2::high_resolution_clock
+
+../src/heat_conduction.cu(115): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(124): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(125): error: no operator "-" matches these operands
+            operand types are: std::chrono::_V2::high_resolution_clock - std::chrono::_V2::high_resolution_clock
+
+6 errors detected in the compilation of "/tmp/tmpxft_00006db7_00000000-7_heat_conduction.compute_75.cpp1.ii".
+make: *** [src/heat_conduction.o] Error 1
+20:51:06 **** Incremental Build of configuration Debug for project heat_conduction ****
+make all 
+Building file: ../src/heat_conduction.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/heat_conduction.d" "../src/heat_conduction.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/heat_conduction.o" "../src/heat_conduction.cu"
+../src/heat_conduction.cu(102): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::system_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(111): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::system_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(112): error: no operator "-" matches these operands
+            operand types are: std::chrono::_V2::system_clock - std::chrono::_V2::system_clock
+
+../src/heat_conduction.cu(115): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::system_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(124): error: no operator "=" matches these operands
+            operand types are: std::chrono::_V2::system_clock = std::chrono::_V2::system_clock::time_point
+
+../src/heat_conduction.cu(125): error: no operator "-" matches these operands
+            operand types are: std::chrono::_V2::system_clock - std::chrono::_V2::system_clock
+
+6 errors detected in the compilation of "/tmp/tmpxft_00006f70_00000000-7_heat_conduction.compute_75.cpp1.ii".
+make: *** [src/heat_conduction.o] Error 1
+20:51:47 **** Incremental Build of configuration Debug for project multiplication_test ****
+make all 
+Building file: ../src/multiplication_test.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/multiplication_test.d" "../src/multiplication_test.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/multiplication_test.o" "../src/multiplication_test.cu"
+Finished building: ../src/multiplication_test.cu
+ 
+Building target: multiplication_test
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "multiplication_test"  ./src/multiplication_test.o   
+Finished building target: multiplication_test
+ 
+20:52:39 **** Incremental Build of configuration Debug for project heat_conduction ****
+make all 
+Building file: ../src/heat_conduction.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/heat_conduction.d" "../src/heat_conduction.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/heat_conduction.o" "../src/heat_conduction.cu"
+Finished building: ../src/heat_conduction.cu
+ 
+Building target: heat_conduction
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "heat_conduction"  ./src/heat_conduction.o   
+Finished building target: heat_conduction
+ 
+20:52:58 **** Incremental Build of configuration Debug for project heat_conduction ****
+make all 
+make: Nothing to be done for `all'.
+20:57:04 **** Incremental Build of configuration Debug for project heat_conduction ****
+make all 
+Building file: ../src/heat_conduction.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/heat_conduction.d" "../src/heat_conduction.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/heat_conduction.o" "../src/heat_conduction.cu"
+Finished building: ../src/heat_conduction.cu
+ 
+Building target: heat_conduction
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "heat_conduction"  ./src/heat_conduction.o   
+Finished building target: heat_conduction
+ 
+22:20:55 **** Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu"
+../src/add_vector_with_streams.cu(21): error: identifier "N" is undefined
+
+../src/add_vector_with_streams.cu(53): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(62): error: identifier "stream" is undefined
+
+../src/add_vector_with_streams.cu(62): error: identifier "initWith" is undefined
+
+../src/add_vector_with_streams.cu(63): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): error: argument of type "float" is incompatible with parameter of type "float *"
+
+../src/add_vector_with_streams.cu(64): error: argument of type "float" is incompatible with parameter of type "float *"
+
+../src/add_vector_with_streams.cu(64): error: argument of type "float" is incompatible with parameter of type "float *"
+
+../src/add_vector_with_streams.cu(64): error: too many arguments in function call
+
+../src/add_vector_with_streams.cu(71): error: argument of type "cudaStream_t *" is incompatible with parameter of type "cudaStream_t"
+
+../src/add_vector_with_streams.cu(52): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(84): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): error: identifier "initWith" is undefined
+
+../src/add_vector_with_streams.cu(93): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(95): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(95): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(95): error: argument of type "float" is incompatible with parameter of type "float *"
+
+../src/add_vector_with_streams.cu(95): error: argument of type "float" is incompatible with parameter of type "float *"
+
+../src/add_vector_with_streams.cu(95): error: argument of type "float" is incompatible with parameter of type "float *"
+
+../src/add_vector_with_streams.cu(95): error: too many arguments in function call
+
+../src/add_vector_with_streams.cu(102): error: identifier "streams" is undefined
+
+../src/add_vector_with_streams.cu(83): warning: variable "size" was declared but never referenced
+
+14 errors detected in the compilation of "/tmp/tmpxft_00000c29_00000000-7_add_vector_with_streams.compute_75.cpp1.ii".
+make: *** [src/add_vector_with_streams.o] Error 1
+22:23:07 **** Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu"
+../src/add_vector_with_streams.cu(53): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(62): error: identifier "stream" is undefined
+
+../src/add_vector_with_streams.cu(62): error: argument of type "float" is incompatible with parameter of type "float *"
+
+../src/add_vector_with_streams.cu(63): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(63): error: argument of type "float" is incompatible with parameter of type "float *"
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): error: argument of type "float" is incompatible with parameter of type "float *"
+
+../src/add_vector_with_streams.cu(64): error: argument of type "float" is incompatible with parameter of type "float *"
+
+../src/add_vector_with_streams.cu(64): error: argument of type "float" is incompatible with parameter of type "float *"
+
+../src/add_vector_with_streams.cu(52): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(57): warning: variable "streams" was declared but never referenced
+
+../src/add_vector_with_streams.cu(83): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(91): error: argument of type "float" is incompatible with parameter of type "float *"
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): error: argument of type "float" is incompatible with parameter of type "float *"
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): error: argument of type "float" is incompatible with parameter of type "float *"
+
+../src/add_vector_with_streams.cu(94): error: argument of type "float" is incompatible with parameter of type "float *"
+
+../src/add_vector_with_streams.cu(94): error: argument of type "float" is incompatible with parameter of type "float *"
+
+../src/add_vector_with_streams.cu(101): error: identifier "streams" is undefined
+
+../src/add_vector_with_streams.cu(82): warning: variable "size" was declared but never referenced
+
+12 errors detected in the compilation of "/tmp/tmpxft_00000dc9_00000000-7_add_vector_with_streams.compute_75.cpp1.ii".
+make: *** [src/add_vector_with_streams.o] Error 1
+22:24:55 **** Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu"
+../src/add_vector_with_streams.cu(53): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(63): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(52): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(83): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(101): error: identifier "streams" is undefined
+
+../src/add_vector_with_streams.cu(82): warning: variable "size" was declared but never referenced
+
+1 error detected in the compilation of "/tmp/tmpxft_00000e8f_00000000-7_add_vector_with_streams.compute_75.cpp1.ii".
+make: *** [src/add_vector_with_streams.o] Error 1
+22:25:22 **** Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu"
+../src/add_vector_with_streams.cu(53): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(63): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(52): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(83): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(82): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(38): error: calling a __host__ function("rand") from a __global__ function("init") is not allowed
+
+../src/add_vector_with_streams.cu(38): error: identifier "rand" is undefined in device code
+
+2 errors detected in the compilation of "/tmp/tmpxft_00000f00_00000000-7_add_vector_with_streams.compute_75.cpp1.ii".
+make: *** [src/add_vector_with_streams.o] Error 1
+22:26:49 **** Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu"
+../src/add_vector_with_streams.cu(53): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(63): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(52): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(83): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(82): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(38): error: calling a __host__ function("rand") from a __global__ function("init") is not allowed
+
+../src/add_vector_with_streams.cu(38): error: identifier "rand" is undefined in device code
+
+2 errors detected in the compilation of "/tmp/tmpxft_00000fa1_00000000-7_add_vector_with_streams.compute_75.cpp1.ii".
+make: *** [src/add_vector_with_streams.o] Error 1
+22:27:05 **** Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu"
+../src/add_vector_with_streams.cu(53): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(63): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(52): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(83): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(82): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(53): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(63): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(52): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(83): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(82): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(53): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(63): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(83): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu: In function ‘void addWithStreams()’:
+../src/add_vector_with_streams.cu:53:20: warning: integer overflow in expression [-Woverflow]
+  size_t big = N * 300* sizeof(float);
+                    ^
+../src/add_vector_with_streams.cu:63:118: warning: integer overflow in expression [-Woverflow]
+   init<<<numberOfBlocks, threadsPerBlock, 0, streams[i]>>>(&data[i*N+N*100], N);
+                                                                                                                      ^
+../src/add_vector_with_streams.cu:64:139: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock, 0, streams[i]>>>(&data[i*N],&data[i*N+N*100],&data[i*N+N*200], N);
+                                                                                                                                           ^
+../src/add_vector_with_streams.cu:64:169: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock, 0, streams[i]>>>(&data[i*N],&data[i*N+N*100],&data[i*N+N*200], N);
+                                                                                                                                                                         ^
+../src/add_vector_with_streams.cu: In function ‘void addWithoutStreams()’:
+../src/add_vector_with_streams.cu:83:20: warning: integer overflow in expression [-Woverflow]
+  size_t big = N * 300* sizeof(float);
+                    ^
+../src/add_vector_with_streams.cu:92:103: warning: integer overflow in expression [-Woverflow]
+   init<<<numberOfBlocks, threadsPerBlock>>>(&data[i*N+N*100], N);
+                                                                                                       ^
+../src/add_vector_with_streams.cu:94:124: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock>>>(&data[i*N],&data[i*N+N*100],&data[i*N+N*200], N);
+                                                                                                                            ^
+../src/add_vector_with_streams.cu:94:154: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock>>>(&data[i*N],&data[i*N+N*100],&data[i*N+N*200], N);
+                                                                                                                                                          ^
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+22:27:15 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+make: Nothing to be done for `all'.
+22:29:13 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu"
+../src/add_vector_with_streams.cu(53): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(63): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(52): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(83): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(82): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(53): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(63): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(52): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(83): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(82): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(53): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(63): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(64): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(83): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(94): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu: In function ‘void addWithStreams()’:
+../src/add_vector_with_streams.cu:53:20: warning: integer overflow in expression [-Woverflow]
+  size_t big = N * 300* sizeof(float);
+                    ^
+../src/add_vector_with_streams.cu:63:118: warning: integer overflow in expression [-Woverflow]
+   init<<<numberOfBlocks, threadsPerBlock, 0, streams[i]>>>(&data[i*N+N*100], N);
+                                                                                                                      ^
+../src/add_vector_with_streams.cu:64:139: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock, 0, streams[i]>>>(&data[i*N],&data[i*N+N*100],&data[i*N+N*200], N);
+                                                                                                                                           ^
+../src/add_vector_with_streams.cu:64:169: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock, 0, streams[i]>>>(&data[i*N],&data[i*N+N*100],&data[i*N+N*200], N);
+                                                                                                                                                                         ^
+../src/add_vector_with_streams.cu: In function ‘void addWithoutStreams()’:
+../src/add_vector_with_streams.cu:83:20: warning: integer overflow in expression [-Woverflow]
+  size_t big = N * 300* sizeof(float);
+                    ^
+../src/add_vector_with_streams.cu:92:103: warning: integer overflow in expression [-Woverflow]
+   init<<<numberOfBlocks, threadsPerBlock>>>(&data[i*N+N*100], N);
+                                                                                                       ^
+../src/add_vector_with_streams.cu:94:124: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock>>>(&data[i*N],&data[i*N+N*100],&data[i*N+N*200], N);
+                                                                                                                            ^
+../src/add_vector_with_streams.cu:94:154: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock>>>(&data[i*N],&data[i*N+N*100],&data[i*N+N*200], N);
+                                                                                                                                                          ^
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+22:30:27 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu"
+../src/add_vector_with_streams.cu(52): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(82): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(52): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(82): warning: variable "size" was declared but never referenced
+
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+22:32:23 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu"
+../src/add_vector_with_streams.cu(52): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(82): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(52): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(82): warning: variable "size" was declared but never referenced
+
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+22:35:48 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu"
+../src/add_vector_with_streams.cu(52): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(82): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(52): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(82): warning: variable "size" was declared but never referenced
+
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+22:39:07 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+make: Nothing to be done for `all'.
+22:39:08 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+make: Nothing to be done for `all'.
+19:08:33 **** Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu(62): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(93): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(62): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(93): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(22): error: identifier "assert" is undefined
+
+1 error detected in the compilation of "/tmp/tmpxft_000045db_00000000-4_add_vector_with_streams.cpp4.ii".
+make: *** [src/add_vector_with_streams.o] Error 2
+19:09:21 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu(65): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(96): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(65): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(96): warning: variable "size" was declared but never referenced
+
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+19:10:55 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu(65): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(97): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(65): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(97): warning: variable "size" was declared but never referenced
+
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+19:15:51 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(66): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(98): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(66): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(98): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+19:17:29 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(66): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(99): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(66): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(99): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+19:17:51 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(66): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(98): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(66): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(98): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+19:23:22 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(66): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(98): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(128): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(66): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(98): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu(128): warning: variable "size" was declared but never referenced
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+20:38:00 **** Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+20:39:07 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+20:40:59 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:00:51 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:02:02 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:02:55 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:03:54 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:03:57 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+make: Nothing to be done for `all'.
+21:04:16 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+make: Nothing to be done for `all'.
+21:05:23 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:05:50 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+make: Nothing to be done for `all'.
+21:07:00 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:08:11 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(80): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(91): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(112): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(121): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(123): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(123): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(142): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(150): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(151): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(151): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(80): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(91): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(112): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(121): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(123): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(123): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(142): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(150): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(151): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(151): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(80): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(91): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(112): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(121): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(123): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(123): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(142): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(150): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(151): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(151): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu: In function ‘double addWithStreams()’:
+../src/add_vector_with_streams.cu:80:26: warning: integer overflow in expression [-Woverflow]
+  size_t big = N * 3*NOVEC* sizeof(float);
+                          ^
+../src/add_vector_with_streams.cu:91:118: warning: integer overflow in expression [-Woverflow]
+   init<<<numberOfBlocks, threadsPerBlock, 0, streams[i]>>>(&data[i*N+N*NOVEC], N);
+                                                                                                                      ^
+../src/add_vector_with_streams.cu:92:139: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock, 0, streams[i]>>>(&data[i*N],&data[i*N+N*NOVEC],&data[i*N+N*2*NOVEC], N);
+                                                                                                                                           ^
+../src/add_vector_with_streams.cu:92:174: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock, 0, streams[i]>>>(&data[i*N],&data[i*N+N*NOVEC],&data[i*N+N*2*NOVEC], N);
+                                                                                                                                                                              ^
+../src/add_vector_with_streams.cu: In function ‘double addWithoutStreams()’:
+../src/add_vector_with_streams.cu:112:26: warning: integer overflow in expression [-Woverflow]
+  size_t big = N * 3*NOVEC* sizeof(float);
+                          ^
+../src/add_vector_with_streams.cu:121:103: warning: integer overflow in expression [-Woverflow]
+   init<<<numberOfBlocks, threadsPerBlock>>>(&data[i*N+N*NOVEC], N);
+                                                                                                       ^
+../src/add_vector_with_streams.cu:123:124: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock>>>(&data[i*N],&data[i*N+N*NOVEC],&data[i*N+N*2*NOVEC], N);
+                                                                                                                            ^
+../src/add_vector_with_streams.cu:123:159: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock>>>(&data[i*N],&data[i*N+N*NOVEC],&data[i*N+N*2*NOVEC], N);
+                                                                                                                                                               ^
+../src/add_vector_with_streams.cu: In function ‘double addOneLongVector()’:
+../src/add_vector_with_streams.cu:142:26: warning: integer overflow in expression [-Woverflow]
+  size_t big = N * 3*NOVEC* sizeof(float);
+                          ^
+../src/add_vector_with_streams.cu:150:91: warning: integer overflow in expression [-Woverflow]
+  init<<<numberOfBlocks, threadsPerBlock>>>(data, N*NOVEC);
+                                                                                           ^
+../src/add_vector_with_streams.cu:151:92: warning: integer overflow in expression [-Woverflow]
+  init<<<numberOfBlocks, threadsPerBlock>>>(&data[N*NOVEC], N*NOVEC);
+                                                                                            ^
+../src/add_vector_with_streams.cu:151:102: warning: integer overflow in expression [-Woverflow]
+  init<<<numberOfBlocks, threadsPerBlock>>>(&data[N*NOVEC], N*NOVEC);
+                                                                                                      ^
+../src/add_vector_with_streams.cu:153:103: warning: integer overflow in expression [-Woverflow]
+  addVector<<<numberOfBlocks, threadsPerBlock>>>(data,&data[N*NOVEC],&data[N*2*NOVEC], N*NOVEC);
+                                                                                                       ^
+../src/add_vector_with_streams.cu:153:126: warning: integer overflow in expression [-Woverflow]
+  addVector<<<numberOfBlocks, threadsPerBlock>>>(data,&data[N*NOVEC],&data[N*2*NOVEC], N*NOVEC);
+                                                                                                                              ^
+../src/add_vector_with_streams.cu:153:136: warning: integer overflow in expression [-Woverflow]
+  addVector<<<numberOfBlocks, threadsPerBlock>>>(data,&data[N*NOVEC],&data[N*2*NOVEC], N*NOVEC);
+                                                                                                                                        ^
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:08:49 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(80): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(80): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(112): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(112): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(123): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(142): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(142): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(80): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(80): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(112): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(112): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(123): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(142): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(142): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(80): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(80): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(112): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(112): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(123): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(142): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(142): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu: In function ‘double addWithStreams()’:
+../src/add_vector_with_streams.cu:80:26: warning: integer overflow in expression [-Woverflow]
+  size_t big = N * 3*NOVEC* sizeof(float);
+                          ^
+../src/add_vector_with_streams.cu:92:174: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock, 0, streams[i]>>>(&data[i*N],&data[i*N+N*NOVEC],&data[i*N+N*2*NOVEC], N);
+                                                                                                                                                                              ^
+../src/add_vector_with_streams.cu: In function ‘double addWithoutStreams()’:
+../src/add_vector_with_streams.cu:112:26: warning: integer overflow in expression [-Woverflow]
+  size_t big = N * 3*NOVEC* sizeof(float);
+                          ^
+../src/add_vector_with_streams.cu:123:159: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock>>>(&data[i*N],&data[i*N+N*NOVEC],&data[i*N+N*2*NOVEC], N);
+                                                                                                                                                               ^
+../src/add_vector_with_streams.cu: In function ‘double addOneLongVector()’:
+../src/add_vector_with_streams.cu:142:26: warning: integer overflow in expression [-Woverflow]
+  size_t big = N * 3*NOVEC* sizeof(float);
+                          ^
+../src/add_vector_with_streams.cu:153:126: warning: integer overflow in expression [-Woverflow]
+  addVector<<<numberOfBlocks, threadsPerBlock>>>(data,&data[N*NOVEC],&data[N*2*NOVEC], N*NOVEC);
+                                                                                                                              ^
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:10:26 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(80): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(80): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(91): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(112): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(112): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(121): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(123): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(123): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(142): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(142): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(150): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(151): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(151): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(80): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(80): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(91): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(112): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(112): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(121): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(123): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(123): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(142): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(142): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(150): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(151): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(151): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(80): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(80): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(91): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(92): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(112): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(112): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(121): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(123): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(123): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(142): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(142): warning: integer conversion resulted in a change of sign
+
+../src/add_vector_with_streams.cu(150): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(151): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(151): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu(153): warning: integer operation result is out of range
+
+../src/add_vector_with_streams.cu: In function ‘double addWithStreams()’:
+../src/add_vector_with_streams.cu:80:26: warning: integer overflow in expression [-Woverflow]
+  size_t big = N * 3*NOVEC* sizeof(float);
+                          ^
+../src/add_vector_with_streams.cu:91:118: warning: integer overflow in expression [-Woverflow]
+   init<<<numberOfBlocks, threadsPerBlock, 0, streams[i]>>>(&data[i*N+N*NOVEC], N);
+                                                                                                                      ^
+../src/add_vector_with_streams.cu:92:139: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock, 0, streams[i]>>>(&data[i*N],&data[i*N+N*NOVEC],&data[i*N+N*2*NOVEC], N);
+                                                                                                                                           ^
+../src/add_vector_with_streams.cu:92:174: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock, 0, streams[i]>>>(&data[i*N],&data[i*N+N*NOVEC],&data[i*N+N*2*NOVEC], N);
+                                                                                                                                                                              ^
+../src/add_vector_with_streams.cu: In function ‘double addWithoutStreams()’:
+../src/add_vector_with_streams.cu:112:26: warning: integer overflow in expression [-Woverflow]
+  size_t big = N * 3*NOVEC* sizeof(float);
+                          ^
+../src/add_vector_with_streams.cu:121:103: warning: integer overflow in expression [-Woverflow]
+   init<<<numberOfBlocks, threadsPerBlock>>>(&data[i*N+N*NOVEC], N);
+                                                                                                       ^
+../src/add_vector_with_streams.cu:123:124: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock>>>(&data[i*N],&data[i*N+N*NOVEC],&data[i*N+N*2*NOVEC], N);
+                                                                                                                            ^
+../src/add_vector_with_streams.cu:123:159: warning: integer overflow in expression [-Woverflow]
+   addVector<<<numberOfBlocks, threadsPerBlock>>>(&data[i*N],&data[i*N+N*NOVEC],&data[i*N+N*2*NOVEC], N);
+                                                                                                                                                               ^
+../src/add_vector_with_streams.cu: In function ‘double addOneLongVector()’:
+../src/add_vector_with_streams.cu:142:26: warning: integer overflow in expression [-Woverflow]
+  size_t big = N * 3*NOVEC* sizeof(float);
+                          ^
+../src/add_vector_with_streams.cu:150:91: warning: integer overflow in expression [-Woverflow]
+  init<<<numberOfBlocks, threadsPerBlock>>>(data, N*NOVEC);
+                                                                                           ^
+../src/add_vector_with_streams.cu:151:92: warning: integer overflow in expression [-Woverflow]
+  init<<<numberOfBlocks, threadsPerBlock>>>(&data[N*NOVEC], N*NOVEC);
+                                                                                            ^
+../src/add_vector_with_streams.cu:151:102: warning: integer overflow in expression [-Woverflow]
+  init<<<numberOfBlocks, threadsPerBlock>>>(&data[N*NOVEC], N*NOVEC);
+                                                                                                      ^
+../src/add_vector_with_streams.cu:153:103: warning: integer overflow in expression [-Woverflow]
+  addVector<<<numberOfBlocks, threadsPerBlock>>>(data,&data[N*NOVEC],&data[N*2*NOVEC], N*NOVEC);
+                                                                                                       ^
+../src/add_vector_with_streams.cu:153:126: warning: integer overflow in expression [-Woverflow]
+  addVector<<<numberOfBlocks, threadsPerBlock>>>(data,&data[N*NOVEC],&data[N*2*NOVEC], N*NOVEC);
+                                                                                                                              ^
+../src/add_vector_with_streams.cu:153:136: warning: integer overflow in expression [-Woverflow]
+  addVector<<<numberOfBlocks, threadsPerBlock>>>(data,&data[N*NOVEC],&data[N*2*NOVEC], N*NOVEC);
+                                                                                                                                        ^
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:10:30 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+make: Nothing to be done for `all'.
+21:12:45 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(79): warning: shift count is too large
+
+../src/add_vector_with_streams.cu(111): warning: shift count is too large
+
+../src/add_vector_with_streams.cu(141): warning: shift count is too large
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(79): warning: shift count is too large
+
+../src/add_vector_with_streams.cu(111): warning: shift count is too large
+
+../src/add_vector_with_streams.cu(141): warning: shift count is too large
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(79): warning: shift count is too large
+
+../src/add_vector_with_streams.cu(111): warning: shift count is too large
+
+../src/add_vector_with_streams.cu(141): warning: shift count is too large
+
+../src/add_vector_with_streams.cu: In function ‘double addWithStreams()’:
+../src/add_vector_with_streams.cu:79:22: warning: left shift count >= width of type [enabled by default]
+  const long N = SIZE;
+                      ^
+../src/add_vector_with_streams.cu: In function ‘double addWithoutStreams()’:
+../src/add_vector_with_streams.cu:111:22: warning: left shift count >= width of type [enabled by default]
+  const long N = SIZE;
+                      ^
+../src/add_vector_with_streams.cu: In function ‘double addOneLongVector()’:
+../src/add_vector_with_streams.cu:141:22: warning: left shift count >= width of type [enabled by default]
+  const long N = SIZE;
+                      ^
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:13:12 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(150): warning: integer conversion resulted in truncation
+
+../src/add_vector_with_streams.cu(151): warning: integer conversion resulted in truncation
+
+../src/add_vector_with_streams.cu(153): warning: integer conversion resulted in truncation
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(150): warning: integer conversion resulted in truncation
+
+../src/add_vector_with_streams.cu(151): warning: integer conversion resulted in truncation
+
+../src/add_vector_with_streams.cu(153): warning: integer conversion resulted in truncation
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(150): warning: integer conversion resulted in truncation
+
+../src/add_vector_with_streams.cu(151): warning: integer conversion resulted in truncation
+
+../src/add_vector_with_streams.cu(153): warning: integer conversion resulted in truncation
+
+../src/add_vector_with_streams.cu: In function ‘double addOneLongVector()’:
+../src/add_vector_with_streams.cu:150:95: warning: overflow in implicit constant conversion [-Woverflow]
+  init<<<numberOfBlocks, threadsPerBlock>>>(data, N*NOVEC);
+                                                                                               ^
+../src/add_vector_with_streams.cu:151:108: warning: overflow in implicit constant conversion [-Woverflow]
+  init<<<numberOfBlocks, threadsPerBlock>>>(&data[N*NOVEC], N*NOVEC);
+                                                                                                            ^
+../src/add_vector_with_streams.cu:153:146: warning: overflow in implicit constant conversion [-Woverflow]
+  addVector<<<numberOfBlocks, threadsPerBlock>>>(data,&data[N*NOVEC],&data[N*2*NOVEC], N*NOVEC);
+                                                                                                                                                  ^
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:13:35 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:14:27 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:16:09 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+make: Nothing to be done for `all'.
+21:16:38 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:33:35 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(172): error: too few arguments in function call
+
+../src/add_vector_with_streams.cu(173): error: too few arguments in function call
+
+../src/add_vector_with_streams.cu(174): error: too few arguments in function call
+
+../src/add_vector_with_streams.cu(165): warning: variable "with" was declared but never referenced
+
+../src/add_vector_with_streams.cu(165): warning: variable "without" was declared but never referenced
+
+../src/add_vector_with_streams.cu(165): warning: variable "one" was declared but never referenced
+
+3 errors detected in the compilation of "/tmp/tmpxft_000003bd_00000000-7_add_vector_with_streams.compute_75.cpp1.ii".
+make: *** [src/add_vector_with_streams.o] Error 1
+21:34:25 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(165): warning: variable "with" was declared but never referenced
+
+../src/add_vector_with_streams.cu(165): warning: variable "without" was declared but never referenced
+
+../src/add_vector_with_streams.cu(165): warning: variable "one" was declared but never referenced
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(165): warning: variable "with" was declared but never referenced
+
+../src/add_vector_with_streams.cu(165): warning: variable "without" was declared but never referenced
+
+../src/add_vector_with_streams.cu(165): warning: variable "one" was declared but never referenced
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:36:29 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(165): warning: variable "with" was declared but never referenced
+
+../src/add_vector_with_streams.cu(165): warning: variable "without" was declared but never referenced
+
+../src/add_vector_with_streams.cu(165): warning: variable "one" was declared but never referenced
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu(165): warning: variable "with" was declared but never referenced
+
+../src/add_vector_with_streams.cu(165): warning: variable "without" was declared but never referenced
+
+../src/add_vector_with_streams.cu(165): warning: variable "one" was declared but never referenced
+
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:40:18 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 
+21:45:57 **** Incremental Build of configuration Debug for project add_vector_with_streams ****
+make all 
+Building file: ../src/add_vector_with_streams.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/add_vector_with_streams.d" "../src/add_vector_with_streams.cu"
+/usr/local/cuda-10.1/bin/nvcc -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/add_vector_with_streams.o" "../src/add_vector_with_streams.cu" --default-stream per-thread
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+../src/add_vector_with_streams.cu:17:0: warning: "CUDA_API_PER_THREAD_DEFAULT_STREAM" redefined [enabled by default]
+ #define CUDA_API_PER_THREAD_DEFAULT_STREAM
+ ^
+<command-line>:0:0: note: this is the location of the previous definition
+Finished building: ../src/add_vector_with_streams.cu
+ 
+Building target: add_vector_with_streams
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "add_vector_with_streams"  ./src/add_vector_with_streams.o   
+Finished building target: add_vector_with_streams
+ 

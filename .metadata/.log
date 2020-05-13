@@ -6021,3 +6021,12 @@ java.lang.ClassCastException
 !MESSAGE Internal Error
 !STACK 0
 java.lang.ClassCastException
+!SESSION 2020-05-13 15:54:36.782 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.8.0_77
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_US
+Command-line arguments:  -os linux -ws gtk -arch x86_64
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-05-13 15:54:49.049
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.

@@ -1,9 +1,6 @@
 #include <stdio.h>
 #include <math.h>
 
-#include <chrono>
-#include <iostream>
-
 // Simple define to index into a 1D array from 2D space
 #define I2D(num, c, r) ((r)*(num)+(c))
 
@@ -18,11 +15,8 @@ void step_kernel_mod(int ni, int nj, float fact, float* temp_in, float* temp_out
   int i00, im10, ip10, i0m1, i0p1;
   float d2tdx2, d2tdy2;
 
-	#pragma acc data copyin(temp_in) copyout(temp_out)
+
   // loop over all points in domain (except boundary)
-	#pragma acc kernels
-	{//kernal:
-	#pragma acc loop tile(32, 4) device_type(nvidia)
   for ( int j=1; j < nj-1; j++ ) {
     for ( int i=1; i < ni-1; i++ ) {
       // find indices into linear memory
@@ -40,7 +34,6 @@ void step_kernel_mod(int ni, int nj, float fact, float* temp_in, float* temp_out
       // update temperatures
       temp_out[i00] = temp_in[i00]+fact*(d2tdx2 + d2tdy2);
     }
-	}//kernel
   }
 }
 
@@ -96,7 +89,6 @@ int main()
   }
 
   // Execute the CPU-only reference version
-	auto start = std::chrono::high_resolution_clock::now();
   for (istep=0; istep < nstep; istep++) {
     step_kernel_ref(ni, nj, tfac, temp1_ref, temp2_ref);
 
@@ -105,10 +97,8 @@ int main()
     temp1_ref = temp2_ref;
     temp2_ref= temp_tmp;
   }
-	auto stop = std::chrono::high_resolution_clock::now();
 
   // Execute the modified version using same data
-	auto start_2 = std::chrono::high_resolution_clock::now();
   for (istep=0; istep < nstep; istep++) {
     step_kernel_mod(ni, nj, tfac, temp1, temp2);
 
@@ -117,7 +107,6 @@ int main()
     temp1 = temp2;
     temp2= temp_tmp;
   }
-	auto stop_2 = std::chrono::high_resolution_clock::now();
 
   float maxError = 0;
   // Output should always be stored in the temp1 and temp1_ref at this point
@@ -130,11 +119,6 @@ int main()
     printf("Problem! The Max Error of %.5f is NOT within acceptable bounds.\n", maxError);
   else
     printf("The Max Error of %.5f is within acceptable bounds.\n", maxError);
-
-	auto duration_1 = std::chrono::duration_cast<std::chrono::milliseconds>(stop-start).count();
-	auto duration_2 = std::chrono::duration_cast<std::chrono::milliseconds>(stop_2-start_2).count();
-
-	std::cout << std::endl << std::endl << duration_1 << std::endl << duration_2 << std::endl << std::endl;
 
   free( temp1_ref );
   free( temp2_ref );

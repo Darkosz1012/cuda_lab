@@ -22,4 +22,11 @@
 		<item value="org.eclipse.rse.terminals:1.2.100.201406060905"/>
 		<item value="org.eclipse.tm.terminal:3.2.300.201406060905"/>
 	</list>
+	<section name="CleanDialogSettings">
+		<item value="569" key="DIALOG_WIDTH"/>
+		<item value="true" key="TOGGLE_SELECTED"/>
+		<item value="390" key="DIALOG_HEIGHT"/>
+		<item value="2919" key="DIALOG_X_ORIGIN"/>
+		<item value="286" key="DIALOG_Y_ORIGIN"/>
+	</section>
 </section>

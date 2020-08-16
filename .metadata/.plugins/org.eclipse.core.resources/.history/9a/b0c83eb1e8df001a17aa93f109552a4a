@@ -1,0 +1,127 @@
+/*
+ ============================================================================
+ Name        : reduction.cu
+ Author      : 
+ Version     :
+ Copyright   : Your copyright notice
+ Description : CUDA compute reciprocals
+ ============================================================================
+ */
+
+#include <iostream>
+#include <numeric>
+#include <stdlib.h>
+#include <fstream>
+#include <chrono>
+
+static void CheckCudaErrorAux (const char *, unsigned, const char *, cudaError_t);
+#define CUDA_CHECK_RETURN(value) CheckCudaErrorAux(__FILE__,__LINE__, #value, value)
+
+/**
+ * CUDA kernel that computes reciprocal values for a given vector
+ */
+__global__ void reciprocalKernel(float *data, unsigned vectorSize) {
+	unsigned idx = blockIdx.x*blockDim.x+threadIdx.x;
+	if (idx < vectorSize)
+		data[idx] = 1.0/data[idx];
+}
+
+
+__global__ void addNaive(float* data, int N){
+	unsigned idx = blockIdx.x*blockDim.x+threadIdx.x+1;
+	if (idx < N)
+		data[0] += data[idx];
+}
+
+__global__ void addReduction(float* data, int N){
+	extern __shared__  int partialSum[];
+
+	unsigned int t = threadIdx.x;
+	unsigned int start = 2*blockIdx.x*blockDim.x;
+	partialSum[t] = start+t<N?data[start+t] : 0;
+	partialSum[blockDim.x+t] = start + blockDim.x + t < N ? data[start + blockDim.x + t] : 0;
+
+	for (unsigned int stride = 1; stride <=blockDim.x;stride *=2){
+		__syncthreads();
+		if(t%stride==0){
+			partialSum[2*t]+=partialSum[2*t+stride];
+		}
+	}
+	data[t]=partialSum[0];
+}
+/**
+ * Host function that copies the data and launches the work on GPU
+ */
+double setUpReduction(int N,const int SM, const int ID){
+	float* data;
+	CUDA_CHECK_RETURN(cudaMallocManaged(&data, N * sizeof(float)));
+	for(int i = 0; i < N; i++)
+		data[i] = 1;
+
+	CUDA_CHECK_RETURN(cudaMemPrefetchAsync(data, N * sizeof(float), ID));
+	
+	auto start = std::chrono::high_resolution_clock::now();
+	addReduction<<<SM * 32, 256, 2 * N * sizeof(float)>>>(data, N);
+	CUDA_CHECK_RETURN(cudaPeekAtLastError() );
+	cudaDeviceSynchronize();
+	int result = 0;
+	for(int i = 0; i < SM*32;i++){
+		result += data[i];
+	}
+	auto stop = std::chrono::high_resolution_clock::now();
+	std::cout << result<< " "<< N << std::endl;
+	CUDA_CHECK_RETURN(cudaFree(data));
+	return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
+}
+
+double setUpNaive(int N,const int SM, const int ID){
+	float* data;
+	CUDA_CHECK_RETURN(cudaMallocManaged(&data, N * sizeof(float)));
+	for(int i = 0; i < N; i++)
+		data[i] = 1;
+
+	CUDA_CHECK_RETURN(cudaMemPrefetchAsync(data, N * sizeof(float), ID));
+
+	auto start = std::chrono::high_resolution_clock::now();
+	addNaive<<<N/256+1, 256>>>(data, N);
+	CUDA_CHECK_RETURN(cudaPeekAtLastError() );
+	cudaDeviceSynchronize();
+	auto stop = std::chrono::high_resolution_clock::now();
+	std::cout << data[0]<< " "<< N << std::endl;
+	CUDA_CHECK_RETURN(cudaFree(data));
+	return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
+}
+
+
+
+int main(void)
+{
+	int ID;
+	int SM;
+	cudaGetDevice(&ID);
+	cudaDeviceGetAttribute(&SM, cudaDevAttrMultiProcessorCount, ID);
+	std::ofstream save1, save2;
+	save1.open("naive.txt");
+	save2.open("reduction.txt");
+
+	for(int N = 100000; N <2000000; N+=100000){
+		save1 << std::cout << N << " "<< setUpNaive(N,SM, ID)<<std::endl;
+		save2 << std::cout << N << " "<<  setUpReduction(N,SM, ID)<<std::endl;
+	}
+	save1.close();
+	save2.close();
+	return 0;
+}
+
+/**
+ * Check the return value of the CUDA runtime API call and exit
+ * the application if the call has failed.
+ */
+static void CheckCudaErrorAux (const char *file, unsigned line, const char *statement, cudaError_t err)
+{
+	if (err == cudaSuccess)
+		return;
+	std::cerr << statement<<" returned " << cudaGetErrorString(err) << "("<<err<< ") at "<<file<<":"<<line << std::endl;
+	exit (1);
+}
+

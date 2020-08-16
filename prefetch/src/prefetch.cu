@@ -69,30 +69,31 @@ void vectorAddPre(int N, int numberOfSMs, int deviceId, int pre){
 	checkCUDA(cudaMallocManaged(&A, size));
 	checkCUDA(cudaMallocManaged(&B, size));
 	checkCUDA(cudaMallocManaged(&result, size));
-
 	switch(pre){
-		case 3:{
-			cudaMemPrefetchAsync(result, size, deviceId);
-			cudaMemPrefetchAsync(B, size, deviceId);
-			cudaMemPrefetchAsync(A, size, deviceId);
-			break;
-		}
-		case 2:{
-			cudaMemPrefetchAsync(B, size, deviceId);
-			cudaMemPrefetchAsync(A, size, deviceId);
-			break;
-		}
-		case 1:{
-			cudaMemPrefetchAsync(A, size, deviceId);
-			break;
-		}
-		default: break;
-	}
+				case 3:{
+					cudaMemPrefetchAsync(result, size, deviceId);
+					cudaMemPrefetchAsync(B, size, deviceId);
+					cudaMemPrefetchAsync(A, size, deviceId);
+					break;
+				}
+				case 2:{
+					cudaMemPrefetchAsync(B, size, deviceId);
+					cudaMemPrefetchAsync(A, size, deviceId);
+					break;
+				}
+				case 1:{
+					cudaMemPrefetchAsync(A, size, deviceId);
+					break;
+				}
+				default: break;
+			}
+
 	for(int j = 0; j < N; j++){
 		A[j] = static_cast<double>(rand())/(RAND_MAX/1.);
 		B[j] = static_cast<double>(rand())/(RAND_MAX/1.);
 		result[j] = 0;
 	}
+
 
 	//cudaMemPrefetchAsync(A, size, deviceId);
 
@@ -120,8 +121,10 @@ int main(){
 	printf("Device ID: %d\tNumber of SMs: %d\n", deviceId, numberOfSMs);
 
 	save.open("res.txt");
-	for(int p = 0; p < 4; p++){
-		for(int i = 10; i < 1e9 ; i*=10){
+//	for(int p = 0; p < 4; p++){
+//		for(int i = 10; i < 1e9 ; i*=10){
+			int i = 1e8;
+			int p = 3;
 			start = std::chrono::high_resolution_clock::now();
 			vectorAddPre(i,numberOfSMs,deviceId,p);
 			stop = std::chrono::high_resolution_clock::now();
@@ -129,8 +132,8 @@ int main(){
 			save << p <<"\t"<< i <<"\t"<<elapsed_time.count()  << std::endl;
 			std::cout << p <<"\t"<< i <<"\t"<<elapsed_time.count() << std::endl;
 
-		}
-	}
+//		}
+//	}
 	save.close();
 return 0;
 }

@@ -1,0 +1,139 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <assert.h>
+
+#include <cuda_runtime.h>
+
+#include <fstream>
+#include <chrono>
+#include <iostream>
+
+
+__global__ void vectorAdd(const double *A, const double *B, double *C, int numElements) {
+	int i = blockDim.x * blockIdx.x + threadIdx.x;
+
+	if (i < numElements) {
+		C[i] = A[i] + B[i];
+	}
+}
+
+__global__
+void addVectorsInto( double *a, double *b,double *result, int N)
+{
+  int index = threadIdx.x + blockIdx.x * blockDim.x;
+  int stride = blockDim.x * gridDim.x;
+
+  for(int i = index; i < N; i += stride)
+  {
+    result[i] = a[i] + b[i];
+  }
+}
+
+inline cudaError_t checkCUDA(cudaError_t result){
+
+	if(result != cudaSuccess){
+
+		fprintf(stderr, "CUDA Runtime error: %s\n", cudaGetErrorString(result));
+		assert(result == cudaSuccess);
+	}
+
+	return result;
+}
+
+void vectorAddNorm(int N, int numberOfSMs){
+	double* A, *B, *result;
+	size_t size = N * sizeof(double);
+	checkCUDA(cudaMallocManaged(&A, size));
+	checkCUDA(cudaMallocManaged(&B, size));
+	checkCUDA(cudaMallocManaged(&result, size));
+
+	for(int j = 0; j < N; j++){
+		A[j] = static_cast<double>(rand())/(RAND_MAX/1.);
+		B[j] = static_cast<double>(rand())/(RAND_MAX/1.);
+		result[j] = 0;
+	}
+
+	//vectorAdd<<<(N / threads_per_block.x) + 1, 256>>>(A, B, result, N);
+	addVectorsInto<<<32* numberOfSMs, 256>>>(A, B, result, N);
+
+	cudaDeviceSynchronize();
+	checkCUDA(cudaFree(A));
+	checkCUDA(cudaFree(B));
+	checkCUDA(cudaFree(result));
+}
+
+void vectorAddPre(int N, int numberOfSMs, int deviceId, int pre){
+	double* A, *B, *result;
+	size_t size = N * sizeof(double);
+	checkCUDA(cudaMallocManaged(&A, size));
+	checkCUDA(cudaMallocManaged(&B, size));
+	checkCUDA(cudaMallocManaged(&result, size));
+
+
+	for(int j = 0; j < N; j++){
+		A[j] = static_cast<double>(rand())/(RAND_MAX/1.);
+		B[j] = static_cast<double>(rand())/(RAND_MAX/1.);
+		result[j] = 0;
+	}
+	switch(pre){
+			case 3:{
+				cudaMemPrefetchAsync(result, size, deviceId);
+				cudaMemPrefetchAsync(B, size, deviceId);
+				cudaMemPrefetchAsync(A, size, deviceId);
+				break;
+			}
+			case 2:{
+				cudaMemPrefetchAsync(B, size, deviceId);
+				cudaMemPrefetchAsync(A, size, deviceId);
+				break;
+			}
+			case 1:{
+				cudaMemPrefetchAsync(A, size, deviceId);
+				break;
+			}
+			default: break;
+		}
+
+	//cudaMemPrefetchAsync(A, size, deviceId);
+
+	//vectorAdd<<<(N / 256) + 1, 256>>>(A, B, result, N);
+	addVectorsInto<<<32* numberOfSMs, 256>>>(A, B, result, N);
+
+	cudaDeviceSynchronize();
+	checkCUDA(cudaFree(A));
+	checkCUDA(cudaFree(B));
+	checkCUDA(cudaFree(result));
+}
+
+int main(){
+	std::ofstream save;
+
+	std::chrono::system_clock::time_point start;
+	std::chrono::system_clock::time_point stop;
+	std::chrono::duration<double> elapsed_time;
+
+	int deviceId;
+	int numberOfSMs;
+
+	cudaGetDevice(&deviceId);
+	cudaDeviceGetAttribute(&numberOfSMs, cudaDevAttrMultiProcessorCount, deviceId);
+	printf("Device ID: %d\tNumber of SMs: %d\n", deviceId, numberOfSMs);
+
+	save.open("res.txt");
+//	for(int p = 0; p < 4; p++){
+//		for(int i = 10; i < 1e9 ; i*=10){
+			int i = 1e8;
+			int p = 0;
+			start = std::chrono::high_resolution_clock::now();
+			vectorAddPre(i,numberOfSMs,deviceId,p);
+			stop = std::chrono::high_resolution_clock::now();
+			elapsed_time = stop - start;
+			save << p <<"\t"<< i <<"\t"<<elapsed_time.count()  << std::endl;
+			std::cout << p <<"\t"<< i <<"\t"<<elapsed_time.count() << std::endl;
+
+//		}
+//	}
+	save.close();
+return 0;
+}

@@ -1,0 +1,16 @@
+12:22:05 **** Incremental Build of configuration Debug for project histogram_nsight ****
+make all 
+Building file: ../src/histogram_nsight.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -I"/usr/local/cuda-10.1/samples/common/inc" -I"/home/cuda-lab07/cuda-workspace/RTX_addVector" -I"/usr/local/cuda-10.1/samples/0_Simple" -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/histogram_nsight.d" "../src/histogram_nsight.cu"
+/usr/local/cuda-10.1/bin/nvcc -I"/usr/local/cuda-10.1/samples/common/inc" -I"/home/cuda-lab07/cuda-workspace/RTX_addVector" -I"/usr/local/cuda-10.1/samples/0_Simple" -G -g -O0 -std=c++11 --compile --relocatable-device-code=true -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/histogram_nsight.o" "../src/histogram_nsight.cu" -lcurand_static   -lculibos
+Finished building: ../src/histogram_nsight.cu
+ 
+Building target: histogram_nsight
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc  -lcurand_static   -lculibos --cudart static --relocatable-device-code=true -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "histogram_nsight"  ./src/histogram_nsight.o   
+Finished building target: histogram_nsight
+ 
+
+12:22:09 Build Finished (took 4s.341ms)
+

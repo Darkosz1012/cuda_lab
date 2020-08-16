@@ -1,0 +1,141 @@
+/*
+ ============================================================================
+ Name        : histogram_nsight.cu
+ Author      : 
+ Version     :
+ Copyright   : Your copyright notice
+ Description : CUDA compute reciprocals
+ ============================================================================
+ */
+
+#include "cuda_runtime.h"
+#include </usr/include/cuda-10.1/samples/common/inc/helper_cuda.h>
+#include <iostream>
+#include <fstream>
+#include <array>
+#include <chrono>
+#include <random>
+#include <vector>
+#include <string>
+#include <functional>
+
+
+__global__ void main_histogram(const float* input, const long size, int* histogram, int binsNumber) {
+
+	int indx = blockIdx.x * blockDim.x + threadIdx.x;
+	int stride = blockDim.x * gridDim.x;
+
+	extern __shared__ int shared_bins[];
+
+	if(indx < binsNumber)
+		shared_bins[indx] = 1;
+	//shared_bins[threadIdx.x] = 0;
+	__syncthreads();
+
+	for(int i = indx; i < size; i += stride)
+		atomicAdd(&(shared_bins[ (int)input[i] ]), 1);
+	__syncthreads();
+
+	if(indx < binsNumber)
+		histogram[indx]+= shared_bins[indx];
+	if(indx==1){
+		histogram[indx]=123;
+	}
+	//atomicAdd(&histogram[threadIdx.x], shared_bins[threadIdx.x]);
+}
+
+
+__global__ void saturation(int* histogram, const int binsNumber, const int max_value) {
+
+	int indx = blockDim.x * blockIdx.x + threadIdx.x;
+
+	if( indx < binsNumber )
+		if(histogram[indx] > max_value)
+			histogram[indx] = max_value;
+}
+
+
+long CPU_histogram(const float* data, const long size, const int binsNumber, std::string name) {
+
+	std::vector<int> histogram;
+	histogram.resize(binsNumber);
+
+	auto start = std::chrono::high_resolution_clock::now();
+	for(int i = 0; i < size; i++)
+		histogram[static_cast<int>(data[i])]++;
+	auto stop = std::chrono::high_resolution_clock::now();
+
+	std::ofstream save;
+	save.open("CPU_histogram"+name+".txt");
+
+	for(int i = 0; i < binsNumber; i++)
+		save << i << "\t" << histogram[i] << std::endl;
+
+	save.close();
+
+	return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+int main() {
+	std::cout << "Start"<<std::endl;
+	std::random_device rd;
+	std::mt19937 generator{ rd() };
+	const int binsNumber = 20;//2048;
+	std::uniform_real_distribution<float> uniform_distribution{ 0.0, static_cast<float>(binsNumber) };
+
+	float* data;
+	const long size = 10e5;
+
+	cudaMallocManaged(&data, size * sizeof(float));
+	int ID;
+	int SM;
+	cudaGetDevice(&ID);
+	cudaDeviceGetAttribute(&SM, cudaDevAttrMultiProcessorCount, ID);
+
+	for(int i = 0; i < size; i++)
+		data[i] = uniform_distribution(generator);
+
+	auto CPU_time = CPU_histogram(data, size, binsNumber, "uniform");
+
+	cudaMemPrefetchAsync(data, size * sizeof(float), ID);
+
+	int* device_histogram;
+	cudaMallocManaged(&device_histogram, binsNumber * sizeof(int));
+
+	for(int i = 0; i < binsNumber; i++)
+		device_histogram[i] = 0;
+
+	cudaMemPrefetchAsync(device_histogram, binsNumber * sizeof(int), ID);
+	std::cout << "Start calc"<<std::endl;
+	auto start = std::chrono::high_resolution_clock::now();
+	main_histogram<<<SM * 32, 256>>>(data, size, device_histogram, binsNumber);
+	cudaDeviceSynchronize();
+	cudaError_t err = cudaSuccess;
+	​err = cudaGetLastError();
+
+	if (err != cudaSuccess) {
+		fprintf(stderr,
+				"Failed to launch vectorAdd kernel (error code %s)!\n",
+				cudaGetErrorString(err));
+		exit(EXIT_FAILURE);
+	}
+
+	auto stop = std::chrono::high_resolution_clock::now();
+	std::cout << "End calc"<<std::endl;
+	std::ofstream save;
+	save.open("GPU_histogram_uniform_.txt");
+
+	for(int i = 0; i < binsNumber; i++)
+		save << i << "\t" << device_histogram[i] << std::endl;
+
+	save.close();
+	save.open("time_uniform.txt");
+	save << CPU_time << std::endl << std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
+	save.close();
+	std::cout << "End"<<std::endl;
+	return 0;
+}

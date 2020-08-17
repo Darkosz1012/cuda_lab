@@ -1,4 +1,4 @@
-20:36:48 **** Incremental Build of configuration Debug for project reduction ****
+16:22:47 **** Incremental Build of configuration Debug for project reduction ****
 make all 
 Building file: ../src/reduction.cu
 Invoking: NVCC Compiler
@@ -12,5 +12,5 @@ Invoking: NVCC Linker
 Finished building target: reduction
  
 
-20:36:52 Build Finished (took 3s.790ms)
+16:22:51 Build Finished (took 3s.533ms)
 

@@ -28,14 +28,6 @@
 static void CheckCudaErrorAux (const char *, unsigned, const char *, cudaError_t);
 #define CUDA_CHECK_RETURN(value) CheckCudaErrorAux(__FILE__,__LINE__, #value, value)
 
-/**
- * CUDA kernel that computes reciprocal values for a given vector
- */
-__global__ void reciprocalKernel(float *data, unsigned vectorSize) {
-	unsigned idx = blockIdx.x*blockDim.x+threadIdx.x;
-	if (idx < vectorSize)
-		data[idx] = 1.0/data[idx];
-}
 
 
 __global__ void addNaive(float* data, int N){
@@ -60,9 +52,7 @@ __global__ void addReduction(float* data, int N){
 	}
 	data[blockIdx.x]=partialSum[0];
 }
-/**
- * Host function that copies the data and launches the work on GPU
- */
+
 double setUpReduction(int N,const int SM, const int ID){
 	float* data;
 	CUDA_CHECK_RETURN(cudaMallocManaged(&data, N * sizeof(float)));
@@ -81,7 +71,7 @@ double setUpReduction(int N,const int SM, const int ID){
 		//std::cout << data[i]<<std::endl;
 	}
 	auto stop = std::chrono::high_resolution_clock::now();
-	std::cout << "Reduction: "<< result<< " "<< N << std::endl;
+	//std::cout << "Reduction: "<< result<< " "<< N << std::endl;
 	CUDA_CHECK_RETURN(cudaFree(data));
 	return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
 }
@@ -99,7 +89,7 @@ double setUpNaive(int N,const int SM, const int ID){
 	CUDA_CHECK_RETURN(cudaPeekAtLastError() );
 	cudaDeviceSynchronize();
 	auto stop = std::chrono::high_resolution_clock::now();
-	std::cout << "Naive: "<< data[0]<< " "<< N << std::endl;
+	//std::cout << "Naive: "<< data[0]<< " "<< N << std::endl;
 	CUDA_CHECK_RETURN(cudaFree(data));
 	return std::chrono::duration_cast<std::chrono::nanoseconds>(stop-start).count();
 }
@@ -116,19 +106,23 @@ int main(void)
 	save1.open("naive.txt");
 	save2.open("reduction.txt");
 
-	for(int N = 100000; N <80000000; N+=100000){
-		save1 << N << " "<< setUpNaive(N,SM, ID)<<std::endl;
-		save2 << N << " "<<  setUpReduction(N,SM, ID)<<std::endl;
+	for(int N = 50000; N <=50000000; N+=50000){
+		int sum1=0, sum2=0;
+		int iter = 20;
+		for(int i = 0; i < iter;i++){
+			sum1+=setUpNaive(N,SM, ID);
+			sum2+=setUpReduction(N,SM, ID);
+		}
+		save1 << N << "\t"<< sum1/iter<<std::endl;
+		save2 << N << "\t"<<  sum2/iter<<std::endl;
+		std::cout << "N: "<<N << "\t"<< sum1/iter<<std::endl;
+		std::cout << "R: "<<N << "\t"<<  sum2/iter<<std::endl;
 	}
 	save1.close();
 	save2.close();
 	return 0;
 }
 
-/**
- * Check the return value of the CUDA runtime API call and exit
- * the application if the call has failed.
- */
 static void CheckCudaErrorAux (const char *file, unsigned line, const char *statement, cudaError_t err)
 {
 	if (err == cudaSuccess)

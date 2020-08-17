@@ -4205,3 +4205,29 @@ Invoking: NVCC Linker
 /usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "reduction"  ./src/reduction.o   
 Finished building target: reduction
  
+16:18:06 **** Incremental Build of configuration Debug for project reduction ****
+make all 
+Building file: ../src/reduction.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -I"/usr/local/cuda-10.1/samples/common/inc" -I"/usr/local/cuda-10.1/samples/0_Simple" -I"/home/cuda-lab07/cuda-workspace/RTX_addVector" -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/reduction.d" "../src/reduction.cu"
+/usr/local/cuda-10.1/bin/nvcc -I"/usr/local/cuda-10.1/samples/common/inc" -I"/usr/local/cuda-10.1/samples/0_Simple" -I"/home/cuda-lab07/cuda-workspace/RTX_addVector" -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/reduction.o" "../src/reduction.cu"
+Finished building: ../src/reduction.cu
+ 
+Building target: reduction
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "reduction"  ./src/reduction.o   
+Finished building target: reduction
+ 
+16:22:47 **** Incremental Build of configuration Debug for project reduction ****
+make all 
+Building file: ../src/reduction.cu
+Invoking: NVCC Compiler
+/usr/local/cuda-10.1/bin/nvcc -I"/usr/local/cuda-10.1/samples/common/inc" -I"/usr/local/cuda-10.1/samples/0_Simple" -I"/home/cuda-lab07/cuda-workspace/RTX_addVector" -G -g -O0 -std=c++11 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -odir "src" -M -o "src/reduction.d" "../src/reduction.cu"
+/usr/local/cuda-10.1/bin/nvcc -I"/usr/local/cuda-10.1/samples/common/inc" -I"/usr/local/cuda-10.1/samples/0_Simple" -I"/home/cuda-lab07/cuda-workspace/RTX_addVector" -G -g -O0 -std=c++11 --compile --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75  -x cu -o  "src/reduction.o" "../src/reduction.cu"
+Finished building: ../src/reduction.cu
+ 
+Building target: reduction
+Invoking: NVCC Linker
+/usr/local/cuda-10.1/bin/nvcc --cudart static --relocatable-device-code=false -gencode arch=compute_35,code=compute_35 -gencode arch=compute_35,code=sm_35 -gencode arch=compute_75,code=sm_75 -link -o  "reduction"  ./src/reduction.o   
+Finished building target: reduction
+ 
